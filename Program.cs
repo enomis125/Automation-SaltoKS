@@ -162,7 +162,9 @@ class Program
     {
         await connection.OpenAsync();
 
-        var query = "SELECT TOP 1 recordID FROM requestRecordsCode WHERE control = 'N'";
+        // Certifique-se de que a consulta está selecionando a coluna correta
+        var query = "SELECT TOP 1 recordID, protelRoomID, protelValidUntil FROM requestRecordsCode WHERE control = 'N'";
+        
         using (var command = new SqlCommand(query, connection))
         {
             using (var reader = await command.ExecuteReaderAsync())
@@ -170,18 +172,20 @@ class Program
                 if (await reader.ReadAsync())
                 {
                     var recordId = reader["recordID"].ToString();
-                    Console.WriteLine($"Requisição pendente encontrada. recordID: {recordId}");
+                    var protelRoomID = reader["protelRoomID"].ToString();
+                    var protelValidUntil = reader["protelValidUntil"] != DBNull.Value ? (DateTime?)reader["protelValidUntil"] : null;
 
-                    // Fechar o reader antes de realizar qualquer outra operação na mesma conexão
+                    Console.WriteLine($"Requisição pendente encontrada. recordID: {recordId}, protelRoomID: {protelRoomID}");
+
                     reader.Close();
 
-                    // Chamar a função para exibir a lista de usuários e selecionar um
-                    var selectedUserId = await DisplayUserSelectionMenu(accessToken);
+                    // Chamar a função para selecionar o usuário automaticamente com base no protelRoomID
+                    var selectedUserId = await GetUserByLastName(accessToken, protelRoomID);
 
                     if (!string.IsNullOrEmpty(selectedUserId))
                     {
                         // Definir a data de expiração do PIN
-                        var expiryDate = DateTime.Now.AddMonths(1);
+                        var expiryDate = protelValidUntil ?? DateTime.Now.AddMonths(1); // Usar o valor do banco ou adicionar 1 mês
 
                         // Chamar a função AssignPin e capturar os valores
                         var (pinCode, responseBody, requestUrl, responseStatus, requestType, requestBody) = await AssignPin(accessToken, selectedSiteId, selectedUserId, expiryDate);
@@ -192,12 +196,66 @@ class Program
                             await UpdateRecordFields(connection, recordId, selectedUserId, pinCode, requestBody, selectedSiteId, responseBody, requestUrl, responseStatus, requestType, false);
                         }
                     }
+                    else
+                    {
+                        // Atualizar o registro com status 404 e mensagem "user not found"
+                        await UpdateRecordFields(connection, recordId, "", "", "", selectedSiteId, "user not found", "", 404, "PUT", true);
+                    }
                 }
                 else
                 {
                     Console.WriteLine("Nenhuma requisição pendente encontrada.");
                 }
             }
+        }
+    }
+}
+
+
+
+private static async Task<string?> GetUserByLastName(string accessToken, string lastName)
+{
+    var apiUrl = $"https://clp-accept-user.my-clay.com/v1.1/sites/{selectedSiteId}/users";
+
+    using (var httpClient = new HttpClient())
+    {
+        httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", accessToken);
+
+        var response = await httpClient.GetAsync(apiUrl);
+        var content = await response.Content.ReadAsStringAsync();
+
+        if (response.IsSuccessStatusCode)
+        {
+            var json = JObject.Parse(content);
+            var users = json["items"]?.ToObject<JArray>();
+
+            if (users == null || !users.Any())
+            {
+                Console.WriteLine("Nenhum utilizador encontrado.");
+                return null;
+            }
+
+            // Procurar automaticamente pelo utilizador cujo last_name corresponde ao protelRoomID
+            foreach (var userObject in users)
+            {
+                var user = userObject["user"];
+                var id = userObject["id"].ToString();
+                var userLastName = user["last_name"].ToString();
+
+                if (string.Equals(userLastName, lastName, StringComparison.OrdinalIgnoreCase))
+                {
+                    Console.WriteLine($"Utilizador encontrado: {user["first_name"]} {userLastName} (ID: {id})");
+                    return id; // Retorna o ID do utilizador correspondente
+                }
+            }
+
+            Console.WriteLine("Nenhum utilizador encontrado com o sobrenome correspondente.");
+            return null;
+        }
+        else
+        {
+            Console.WriteLine("Erro ao buscar utilizadores: " + content);
+            return null;
         }
     }
 }
@@ -302,7 +360,8 @@ class Program
 
 
 
-    private static async Task UpdateRecordFields(SqlConnection connection, string recordId, string userId, string pinCode, string requestBody, string siteId, string responseBody, string requestUrl, int responseStatus, string requestType, bool isError)
+    // Modifiquei o método UpdateRecordFields para aceitar campos nulos quando o utilizador não for encontrado
+private static async Task UpdateRecordFields(SqlConnection connection, string recordId, string userId, string pinCode, string requestBody, string siteId, string responseBody, string requestUrl, int responseStatus, string requestType, bool isError)
 {
     var query = @"UPDATE requestRecordsCode SET 
         requestDate = @RequestDate,
@@ -320,13 +379,13 @@ class Program
     using (var command = new SqlCommand(query, connection))
     {
         command.Parameters.AddWithValue("@RequestDate", DateTime.Now);
-        command.Parameters.AddWithValue("@Code", pinCode);
-        command.Parameters.AddWithValue("@SaltoUserID", userId);
+        command.Parameters.AddWithValue("@Code", (object)pinCode ?? DBNull.Value);
+        command.Parameters.AddWithValue("@SaltoUserID", (object)userId ?? DBNull.Value);
         command.Parameters.AddWithValue("@SiteID", siteId);
         command.Parameters.AddWithValue("@recordID", recordId);
-        command.Parameters.AddWithValue("@RequestBody", requestBody);
+        command.Parameters.AddWithValue("@RequestBody", (object)requestBody ?? DBNull.Value);
         command.Parameters.AddWithValue("@ResponseBody", responseBody);
-        command.Parameters.AddWithValue("@RequestURL", requestUrl);
+        command.Parameters.AddWithValue("@RequestURL", (object)requestUrl ?? DBNull.Value);
         command.Parameters.AddWithValue("@ResponseStatus", responseStatus);
         command.Parameters.AddWithValue("@RequestType", requestType);
 
