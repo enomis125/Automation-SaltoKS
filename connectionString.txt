@@ -1,1 +1,1 @@
-Server=ENOMIS\MSSQLSERVER01;Database=protelmprado;Integrated Security=True;
+Server=COKAS;Database=protelmprado;Integrated Security=True;
