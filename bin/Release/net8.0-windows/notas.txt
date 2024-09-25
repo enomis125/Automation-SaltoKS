@@ -14272,3 +14272,639 @@
 25/09/2024 10:32:31: Access token refreshed successfully.
 25/09/2024 10:32:31: Work execution completed successfully.
 25/09/2024 10:32:31: Nenhuma requisição pendente encontrada.
+25/09/2024 10:32:41: Starting work execution.
+25/09/2024 10:32:41: Access token refreshed successfully.
+25/09/2024 10:32:41: Work execution completed successfully.
+25/09/2024 10:32:41: Nenhuma requisição pendente encontrada.
+25/09/2024 10:32:51: Starting work execution.
+25/09/2024 10:32:51: Access token refreshed successfully.
+25/09/2024 10:32:51: Work execution completed successfully.
+25/09/2024 10:32:51: Nenhuma requisição pendente encontrada.
+25/09/2024 10:33:01: Starting work execution.
+25/09/2024 10:33:01: Access token refreshed successfully.
+25/09/2024 10:33:01: Work execution completed successfully.
+25/09/2024 10:33:01: Nenhuma requisição pendente encontrada.
+25/09/2024 10:33:11: Starting work execution.
+25/09/2024 10:33:11: Access token refreshed successfully.
+25/09/2024 10:33:11: Work execution completed successfully.
+25/09/2024 10:33:11: Nenhuma requisição pendente encontrada.
+25/09/2024 10:33:21: Starting work execution.
+25/09/2024 10:33:21: Access token refreshed successfully.
+25/09/2024 10:33:21: Work execution completed successfully.
+25/09/2024 10:33:21: Nenhuma requisição pendente encontrada.
+25/09/2024 10:33:31: Starting work execution.
+25/09/2024 10:33:31: Access token refreshed successfully.
+25/09/2024 10:33:31: Work execution completed successfully.
+25/09/2024 10:33:31: Nenhuma requisição pendente encontrada.
+25/09/2024 10:33:41: Starting work execution.
+25/09/2024 10:33:41: Access token refreshed successfully.
+25/09/2024 10:33:41: Work execution completed successfully.
+25/09/2024 10:33:41: Nenhuma requisição pendente encontrada.
+25/09/2024 10:33:51: Starting work execution.
+25/09/2024 10:33:51: Access token refreshed successfully.
+25/09/2024 10:33:51: Work execution completed successfully.
+25/09/2024 10:33:51: Nenhuma requisição pendente encontrada.
+25/09/2024 10:34:01: Starting work execution.
+25/09/2024 10:34:01: Access token refreshed successfully.
+25/09/2024 10:34:01: Work execution completed successfully.
+25/09/2024 10:34:01: Nenhuma requisição pendente encontrada.
+25/09/2024 10:34:11: Starting work execution.
+25/09/2024 10:34:11: Access token refreshed successfully.
+25/09/2024 10:34:11: Work execution completed successfully.
+25/09/2024 10:34:11: Nenhuma requisição pendente encontrada.
+25/09/2024 10:34:21: Starting work execution.
+25/09/2024 10:34:21: Access token refreshed successfully.
+25/09/2024 10:34:21: Work execution completed successfully.
+25/09/2024 10:34:21: Nenhuma requisição pendente encontrada.
+25/09/2024 10:34:31: Starting work execution.
+25/09/2024 10:34:31: Access token refreshed successfully.
+25/09/2024 10:34:31: Work execution completed successfully.
+25/09/2024 10:34:31: Nenhuma requisição pendente encontrada.
+25/09/2024 10:34:41: Starting work execution.
+25/09/2024 10:34:41: Access token refreshed successfully.
+25/09/2024 10:34:41: Work execution completed successfully.
+25/09/2024 10:34:41: Nenhuma requisição pendente encontrada.
+25/09/2024 10:34:51: Starting work execution.
+25/09/2024 10:34:51: Access token refreshed successfully.
+25/09/2024 10:34:51: Work execution completed successfully.
+25/09/2024 10:34:51: Nenhuma requisição pendente encontrada.
+25/09/2024 10:35:01: Starting work execution.
+25/09/2024 10:35:01: Access token refreshed successfully.
+25/09/2024 10:35:01: Work execution completed successfully.
+25/09/2024 10:35:01: Nenhuma requisição pendente encontrada.
+25/09/2024 10:35:11: Starting work execution.
+25/09/2024 10:35:11: Access token refreshed successfully.
+25/09/2024 10:35:11: Work execution completed successfully.
+25/09/2024 10:35:11: Nenhuma requisição pendente encontrada.
+25/09/2024 10:35:21: Starting work execution.
+25/09/2024 10:35:21: Access token refreshed successfully.
+25/09/2024 10:35:21: Work execution completed successfully.
+25/09/2024 10:35:21: Nenhuma requisição pendente encontrada.
+25/09/2024 10:35:31: Starting work execution.
+25/09/2024 10:35:31: Access token refreshed successfully.
+25/09/2024 10:35:31: Work execution completed successfully.
+25/09/2024 10:35:31: Nenhuma requisição pendente encontrada.
+25/09/2024 10:35:41: Starting work execution.
+25/09/2024 10:35:41: Access token refreshed successfully.
+25/09/2024 10:35:41: Work execution completed successfully.
+25/09/2024 10:35:41: Nenhuma requisição pendente encontrada.
+25/09/2024 10:35:51: Starting work execution.
+25/09/2024 10:35:51: Access token refreshed successfully.
+25/09/2024 10:35:51: Work execution completed successfully.
+25/09/2024 10:35:51: Nenhuma requisição pendente encontrada.
+25/09/2024 10:36:01: Starting work execution.
+25/09/2024 10:36:01: Access token refreshed successfully.
+25/09/2024 10:36:01: Work execution completed successfully.
+25/09/2024 10:36:01: Nenhuma requisição pendente encontrada.
+25/09/2024 10:36:11: Starting work execution.
+25/09/2024 10:36:11: Access token refreshed successfully.
+25/09/2024 10:36:11: Work execution completed successfully.
+25/09/2024 10:36:11: Nenhuma requisição pendente encontrada.
+25/09/2024 10:36:21: Starting work execution.
+25/09/2024 10:36:21: Access token refreshed successfully.
+25/09/2024 10:36:21: Work execution completed successfully.
+25/09/2024 10:36:21: Nenhuma requisição pendente encontrada.
+25/09/2024 10:36:31: Starting work execution.
+25/09/2024 10:36:31: Access token refreshed successfully.
+25/09/2024 10:36:31: Work execution completed successfully.
+25/09/2024 10:36:31: Nenhuma requisição pendente encontrada.
+25/09/2024 10:36:41: Starting work execution.
+25/09/2024 10:36:41: Access token refreshed successfully.
+25/09/2024 10:36:41: Work execution completed successfully.
+25/09/2024 10:36:41: Nenhuma requisição pendente encontrada.
+25/09/2024 10:36:51: Starting work execution.
+25/09/2024 10:36:51: Access token refreshed successfully.
+25/09/2024 10:36:51: Work execution completed successfully.
+25/09/2024 10:36:51: Nenhuma requisição pendente encontrada.
+25/09/2024 10:37:01: Starting work execution.
+25/09/2024 10:37:01: Access token refreshed successfully.
+25/09/2024 10:37:01: Work execution completed successfully.
+25/09/2024 10:37:01: Nenhuma requisição pendente encontrada.
+25/09/2024 10:37:11: Starting work execution.
+25/09/2024 10:37:11: Access token refreshed successfully.
+25/09/2024 10:37:11: Work execution completed successfully.
+25/09/2024 10:37:11: Nenhuma requisição pendente encontrada.
+25/09/2024 10:37:21: Starting work execution.
+25/09/2024 10:37:21: Access token refreshed successfully.
+25/09/2024 10:37:21: Work execution completed successfully.
+25/09/2024 10:37:21: Nenhuma requisição pendente encontrada.
+25/09/2024 10:37:31: Starting work execution.
+25/09/2024 10:37:31: Access token refreshed successfully.
+25/09/2024 10:37:31: Work execution completed successfully.
+25/09/2024 10:37:31: Nenhuma requisição pendente encontrada.
+25/09/2024 10:37:41: Starting work execution.
+25/09/2024 10:37:41: Access token refreshed successfully.
+25/09/2024 10:37:41: Work execution completed successfully.
+25/09/2024 10:37:41: Nenhuma requisição pendente encontrada.
+25/09/2024 10:37:51: Starting work execution.
+25/09/2024 10:37:51: Access token refreshed successfully.
+25/09/2024 10:37:51: Work execution completed successfully.
+25/09/2024 10:37:51: Nenhuma requisição pendente encontrada.
+25/09/2024 10:38:01: Starting work execution.
+25/09/2024 10:38:01: Access token refreshed successfully.
+25/09/2024 10:38:01: Work execution completed successfully.
+25/09/2024 10:38:01: Nenhuma requisição pendente encontrada.
+25/09/2024 10:38:11: Starting work execution.
+25/09/2024 10:38:11: Access token refreshed successfully.
+25/09/2024 10:38:11: Work execution completed successfully.
+25/09/2024 10:38:11: Nenhuma requisição pendente encontrada.
+25/09/2024 10:38:21: Starting work execution.
+25/09/2024 10:38:21: Access token refreshed successfully.
+25/09/2024 10:38:21: Work execution completed successfully.
+25/09/2024 10:38:21: Nenhuma requisição pendente encontrada.
+25/09/2024 10:38:31: Starting work execution.
+25/09/2024 10:38:31: Access token refreshed successfully.
+25/09/2024 10:38:31: Work execution completed successfully.
+25/09/2024 10:38:31: Nenhuma requisição pendente encontrada.
+25/09/2024 10:38:41: Starting work execution.
+25/09/2024 10:38:41: Access token refreshed successfully.
+25/09/2024 10:38:41: Work execution completed successfully.
+25/09/2024 10:38:41: Nenhuma requisição pendente encontrada.
+25/09/2024 10:38:51: Starting work execution.
+25/09/2024 10:38:51: Access token refreshed successfully.
+25/09/2024 10:38:51: Work execution completed successfully.
+25/09/2024 10:38:51: Nenhuma requisição pendente encontrada.
+25/09/2024 10:39:01: Starting work execution.
+25/09/2024 10:39:01: Access token refreshed successfully.
+25/09/2024 10:39:01: Work execution completed successfully.
+25/09/2024 10:39:01: Nenhuma requisição pendente encontrada.
+25/09/2024 10:39:11: Starting work execution.
+25/09/2024 10:39:11: Access token refreshed successfully.
+25/09/2024 10:39:11: Work execution completed successfully.
+25/09/2024 10:39:11: Nenhuma requisição pendente encontrada.
+25/09/2024 10:39:21: Starting work execution.
+25/09/2024 10:39:21: Access token refreshed successfully.
+25/09/2024 10:39:21: Work execution completed successfully.
+25/09/2024 10:39:21: Nenhuma requisição pendente encontrada.
+25/09/2024 10:39:31: Starting work execution.
+25/09/2024 10:39:31: Access token refreshed successfully.
+25/09/2024 10:39:31: Work execution completed successfully.
+25/09/2024 10:39:31: Nenhuma requisição pendente encontrada.
+25/09/2024 10:39:41: Starting work execution.
+25/09/2024 10:39:41: Access token refreshed successfully.
+25/09/2024 10:39:41: Work execution completed successfully.
+25/09/2024 10:39:41: Nenhuma requisição pendente encontrada.
+25/09/2024 10:39:51: Starting work execution.
+25/09/2024 10:39:51: Access token refreshed successfully.
+25/09/2024 10:39:51: Work execution completed successfully.
+25/09/2024 10:39:51: Nenhuma requisição pendente encontrada.
+25/09/2024 10:40:01: Starting work execution.
+25/09/2024 10:40:01: Access token refreshed successfully.
+25/09/2024 10:40:01: Work execution completed successfully.
+25/09/2024 10:40:01: Nenhuma requisição pendente encontrada.
+25/09/2024 10:40:11: Starting work execution.
+25/09/2024 10:40:11: Access token refreshed successfully.
+25/09/2024 10:40:11: Work execution completed successfully.
+25/09/2024 10:40:11: Nenhuma requisição pendente encontrada.
+25/09/2024 10:40:21: Starting work execution.
+25/09/2024 10:40:21: Access token refreshed successfully.
+25/09/2024 10:40:21: Work execution completed successfully.
+25/09/2024 10:40:21: Nenhuma requisição pendente encontrada.
+25/09/2024 10:40:31: Starting work execution.
+25/09/2024 10:40:31: Access token refreshed successfully.
+25/09/2024 10:40:31: Work execution completed successfully.
+25/09/2024 10:40:31: Nenhuma requisição pendente encontrada.
+25/09/2024 10:40:41: Starting work execution.
+25/09/2024 10:40:41: Access token refreshed successfully.
+25/09/2024 10:40:41: Work execution completed successfully.
+25/09/2024 10:40:41: Nenhuma requisição pendente encontrada.
+25/09/2024 10:40:51: Starting work execution.
+25/09/2024 10:40:51: Access token refreshed successfully.
+25/09/2024 10:40:51: Work execution completed successfully.
+25/09/2024 10:40:51: Nenhuma requisição pendente encontrada.
+25/09/2024 10:41:01: Starting work execution.
+25/09/2024 10:41:01: Access token refreshed successfully.
+25/09/2024 10:41:01: Work execution completed successfully.
+25/09/2024 10:41:01: Nenhuma requisição pendente encontrada.
+25/09/2024 10:41:11: Starting work execution.
+25/09/2024 10:41:11: Access token refreshed successfully.
+25/09/2024 10:41:11: Work execution completed successfully.
+25/09/2024 10:41:11: Nenhuma requisição pendente encontrada.
+25/09/2024 10:41:21: Starting work execution.
+25/09/2024 10:41:21: Access token refreshed successfully.
+25/09/2024 10:41:21: Work execution completed successfully.
+25/09/2024 10:41:21: Nenhuma requisição pendente encontrada.
+25/09/2024 10:41:31: Starting work execution.
+25/09/2024 10:41:31: Access token refreshed successfully.
+25/09/2024 10:41:31: Work execution completed successfully.
+25/09/2024 10:41:31: Nenhuma requisição pendente encontrada.
+25/09/2024 10:41:41: Starting work execution.
+25/09/2024 10:41:41: Access token refreshed successfully.
+25/09/2024 10:41:41: Work execution completed successfully.
+25/09/2024 10:41:41: Nenhuma requisição pendente encontrada.
+25/09/2024 10:41:51: Starting work execution.
+25/09/2024 10:41:51: Access token refreshed successfully.
+25/09/2024 10:41:51: Work execution completed successfully.
+25/09/2024 10:41:51: Nenhuma requisição pendente encontrada.
+25/09/2024 10:42:01: Starting work execution.
+25/09/2024 10:42:01: Access token refreshed successfully.
+25/09/2024 10:42:01: Work execution completed successfully.
+25/09/2024 10:42:01: Nenhuma requisição pendente encontrada.
+25/09/2024 10:42:11: Starting work execution.
+25/09/2024 10:42:11: Access token refreshed successfully.
+25/09/2024 10:42:11: Work execution completed successfully.
+25/09/2024 10:42:11: Nenhuma requisição pendente encontrada.
+25/09/2024 10:42:21: Starting work execution.
+25/09/2024 10:42:21: Access token refreshed successfully.
+25/09/2024 10:42:21: Work execution completed successfully.
+25/09/2024 10:42:21: Nenhuma requisição pendente encontrada.
+25/09/2024 10:42:31: Starting work execution.
+25/09/2024 10:42:31: Access token refreshed successfully.
+25/09/2024 10:42:31: Work execution completed successfully.
+25/09/2024 10:42:31: Nenhuma requisição pendente encontrada.
+25/09/2024 10:42:41: Starting work execution.
+25/09/2024 10:42:41: Access token refreshed successfully.
+25/09/2024 10:42:41: Work execution completed successfully.
+25/09/2024 10:42:41: Nenhuma requisição pendente encontrada.
+25/09/2024 10:42:51: Starting work execution.
+25/09/2024 10:42:51: Access token refreshed successfully.
+25/09/2024 10:42:51: Work execution completed successfully.
+25/09/2024 10:42:51: Nenhuma requisição pendente encontrada.
+25/09/2024 10:43:01: Starting work execution.
+25/09/2024 10:43:01: Access token refreshed successfully.
+25/09/2024 10:43:01: Work execution completed successfully.
+25/09/2024 10:43:01: Nenhuma requisição pendente encontrada.
+25/09/2024 10:43:11: Starting work execution.
+25/09/2024 10:43:11: Access token refreshed successfully.
+25/09/2024 10:43:11: Work execution completed successfully.
+25/09/2024 10:43:11: Nenhuma requisição pendente encontrada.
+25/09/2024 10:43:21: Starting work execution.
+25/09/2024 10:43:21: Access token refreshed successfully.
+25/09/2024 10:43:21: Work execution completed successfully.
+25/09/2024 10:43:21: Nenhuma requisição pendente encontrada.
+25/09/2024 10:43:31: Starting work execution.
+25/09/2024 10:43:31: Access token refreshed successfully.
+25/09/2024 10:43:31: Work execution completed successfully.
+25/09/2024 10:43:31: Nenhuma requisição pendente encontrada.
+25/09/2024 10:43:41: Starting work execution.
+25/09/2024 10:43:41: Access token refreshed successfully.
+25/09/2024 10:43:41: Work execution completed successfully.
+25/09/2024 10:43:41: Nenhuma requisição pendente encontrada.
+25/09/2024 10:43:51: Starting work execution.
+25/09/2024 10:43:51: Access token refreshed successfully.
+25/09/2024 10:43:51: Work execution completed successfully.
+25/09/2024 10:43:51: Nenhuma requisição pendente encontrada.
+25/09/2024 10:44:01: Starting work execution.
+25/09/2024 10:44:01: Access token refreshed successfully.
+25/09/2024 10:44:01: Work execution completed successfully.
+25/09/2024 10:44:01: Nenhuma requisição pendente encontrada.
+25/09/2024 10:44:11: Starting work execution.
+25/09/2024 10:44:11: Access token refreshed successfully.
+25/09/2024 10:44:11: Work execution completed successfully.
+25/09/2024 10:44:11: Nenhuma requisição pendente encontrada.
+25/09/2024 10:44:21: Starting work execution.
+25/09/2024 10:44:21: Access token refreshed successfully.
+25/09/2024 10:44:21: Work execution completed successfully.
+25/09/2024 10:44:21: Nenhuma requisição pendente encontrada.
+25/09/2024 10:44:31: Starting work execution.
+25/09/2024 10:44:31: Access token refreshed successfully.
+25/09/2024 10:44:31: Work execution completed successfully.
+25/09/2024 10:44:31: Nenhuma requisição pendente encontrada.
+25/09/2024 10:44:41: Starting work execution.
+25/09/2024 10:44:41: Access token refreshed successfully.
+25/09/2024 10:44:41: Work execution completed successfully.
+25/09/2024 10:44:41: Nenhuma requisição pendente encontrada.
+25/09/2024 10:44:51: Starting work execution.
+25/09/2024 10:44:51: Access token refreshed successfully.
+25/09/2024 10:44:51: Work execution completed successfully.
+25/09/2024 10:44:51: Nenhuma requisição pendente encontrada.
+25/09/2024 10:45:01: Starting work execution.
+25/09/2024 10:45:01: Access token refreshed successfully.
+25/09/2024 10:45:01: Work execution completed successfully.
+25/09/2024 10:45:01: Nenhuma requisição pendente encontrada.
+25/09/2024 10:45:11: Starting work execution.
+25/09/2024 10:45:11: Access token refreshed successfully.
+25/09/2024 10:45:11: Work execution completed successfully.
+25/09/2024 10:45:11: Nenhuma requisição pendente encontrada.
+25/09/2024 10:45:21: Starting work execution.
+25/09/2024 10:45:21: Access token refreshed successfully.
+25/09/2024 10:45:21: Work execution completed successfully.
+25/09/2024 10:45:21: Nenhuma requisição pendente encontrada.
+25/09/2024 10:45:31: Starting work execution.
+25/09/2024 10:45:31: Access token refreshed successfully.
+25/09/2024 10:45:31: Work execution completed successfully.
+25/09/2024 10:45:31: Nenhuma requisição pendente encontrada.
+25/09/2024 10:45:41: Starting work execution.
+25/09/2024 10:45:41: Access token refreshed successfully.
+25/09/2024 10:45:41: Work execution completed successfully.
+25/09/2024 10:45:41: Nenhuma requisição pendente encontrada.
+25/09/2024 10:45:51: Starting work execution.
+25/09/2024 10:45:51: Access token refreshed successfully.
+25/09/2024 10:45:51: Work execution completed successfully.
+25/09/2024 10:45:51: Nenhuma requisição pendente encontrada.
+25/09/2024 10:46:01: Starting work execution.
+25/09/2024 10:46:01: Access token refreshed successfully.
+25/09/2024 10:46:01: Work execution completed successfully.
+25/09/2024 10:46:01: Nenhuma requisição pendente encontrada.
+25/09/2024 10:46:11: Starting work execution.
+25/09/2024 10:46:11: Access token refreshed successfully.
+25/09/2024 10:46:11: Work execution completed successfully.
+25/09/2024 10:46:11: Nenhuma requisição pendente encontrada.
+25/09/2024 10:46:21: Starting work execution.
+25/09/2024 10:46:21: Access token refreshed successfully.
+25/09/2024 10:46:21: Work execution completed successfully.
+25/09/2024 10:46:21: Nenhuma requisição pendente encontrada.
+25/09/2024 10:46:31: Starting work execution.
+25/09/2024 10:46:31: Access token refreshed successfully.
+25/09/2024 10:46:31: Work execution completed successfully.
+25/09/2024 10:46:31: Nenhuma requisição pendente encontrada.
+25/09/2024 10:46:41: Starting work execution.
+25/09/2024 10:46:41: Access token refreshed successfully.
+25/09/2024 10:46:41: Work execution completed successfully.
+25/09/2024 10:46:41: Nenhuma requisição pendente encontrada.
+25/09/2024 10:46:51: Starting work execution.
+25/09/2024 10:46:51: Access token refreshed successfully.
+25/09/2024 10:46:51: Work execution completed successfully.
+25/09/2024 10:46:51: Nenhuma requisição pendente encontrada.
+25/09/2024 10:47:01: Starting work execution.
+25/09/2024 10:47:01: Access token refreshed successfully.
+25/09/2024 10:47:01: Work execution completed successfully.
+25/09/2024 10:47:01: Nenhuma requisição pendente encontrada.
+25/09/2024 10:47:11: Starting work execution.
+25/09/2024 10:47:11: Access token refreshed successfully.
+25/09/2024 10:47:11: Work execution completed successfully.
+25/09/2024 10:47:11: Nenhuma requisição pendente encontrada.
+25/09/2024 10:47:21: Starting work execution.
+25/09/2024 10:47:21: Access token refreshed successfully.
+25/09/2024 10:47:21: Work execution completed successfully.
+25/09/2024 10:47:21: Nenhuma requisição pendente encontrada.
+25/09/2024 10:47:31: Starting work execution.
+25/09/2024 10:47:31: Access token refreshed successfully.
+25/09/2024 10:47:31: Work execution completed successfully.
+25/09/2024 10:47:31: Nenhuma requisição pendente encontrada.
+25/09/2024 10:47:41: Starting work execution.
+25/09/2024 10:47:41: Access token refreshed successfully.
+25/09/2024 10:47:41: Work execution completed successfully.
+25/09/2024 10:47:41: Nenhuma requisição pendente encontrada.
+25/09/2024 10:47:51: Starting work execution.
+25/09/2024 10:47:51: Access token refreshed successfully.
+25/09/2024 10:47:51: Work execution completed successfully.
+25/09/2024 10:47:51: Nenhuma requisição pendente encontrada.
+25/09/2024 10:48:01: Starting work execution.
+25/09/2024 10:48:01: Access token refreshed successfully.
+25/09/2024 10:48:01: Work execution completed successfully.
+25/09/2024 10:48:01: Nenhuma requisição pendente encontrada.
+25/09/2024 10:48:11: Starting work execution.
+25/09/2024 10:48:11: Access token refreshed successfully.
+25/09/2024 10:48:11: Work execution completed successfully.
+25/09/2024 10:48:11: Nenhuma requisição pendente encontrada.
+25/09/2024 10:48:21: Starting work execution.
+25/09/2024 10:48:21: Access token refreshed successfully.
+25/09/2024 10:48:21: Work execution completed successfully.
+25/09/2024 10:48:21: Nenhuma requisição pendente encontrada.
+25/09/2024 10:48:31: Starting work execution.
+25/09/2024 10:48:31: Access token refreshed successfully.
+25/09/2024 10:48:31: Work execution completed successfully.
+25/09/2024 10:48:31: Nenhuma requisição pendente encontrada.
+25/09/2024 10:48:41: Starting work execution.
+25/09/2024 10:48:41: Access token refreshed successfully.
+25/09/2024 10:48:41: Work execution completed successfully.
+25/09/2024 10:48:41: Nenhuma requisição pendente encontrada.
+25/09/2024 10:48:51: Starting work execution.
+25/09/2024 10:48:51: Access token refreshed successfully.
+25/09/2024 10:48:51: Work execution completed successfully.
+25/09/2024 10:48:51: Nenhuma requisição pendente encontrada.
+25/09/2024 10:49:01: Starting work execution.
+25/09/2024 10:49:01: Access token refreshed successfully.
+25/09/2024 10:49:01: Work execution completed successfully.
+25/09/2024 10:49:01: Nenhuma requisição pendente encontrada.
+25/09/2024 10:49:11: Starting work execution.
+25/09/2024 10:49:11: Access token refreshed successfully.
+25/09/2024 10:49:11: Work execution completed successfully.
+25/09/2024 10:49:11: Nenhuma requisição pendente encontrada.
+25/09/2024 10:49:21: Starting work execution.
+25/09/2024 10:49:21: Access token refreshed successfully.
+25/09/2024 10:49:21: Work execution completed successfully.
+25/09/2024 10:49:21: Nenhuma requisição pendente encontrada.
+25/09/2024 10:49:31: Starting work execution.
+25/09/2024 10:49:31: Access token refreshed successfully.
+25/09/2024 10:49:31: Work execution completed successfully.
+25/09/2024 10:49:31: Nenhuma requisição pendente encontrada.
+25/09/2024 10:49:41: Starting work execution.
+25/09/2024 10:49:41: Access token refreshed successfully.
+25/09/2024 10:49:41: Work execution completed successfully.
+25/09/2024 10:49:41: Nenhuma requisição pendente encontrada.
+25/09/2024 10:49:51: Starting work execution.
+25/09/2024 10:49:51: Access token refreshed successfully.
+25/09/2024 10:49:51: Work execution completed successfully.
+25/09/2024 10:49:51: Nenhuma requisição pendente encontrada.
+25/09/2024 10:50:01: Starting work execution.
+25/09/2024 10:50:01: Access token refreshed successfully.
+25/09/2024 10:50:01: Work execution completed successfully.
+25/09/2024 10:50:01: Nenhuma requisição pendente encontrada.
+25/09/2024 10:50:11: Starting work execution.
+25/09/2024 10:50:11: Access token refreshed successfully.
+25/09/2024 10:50:11: Work execution completed successfully.
+25/09/2024 10:50:11: Nenhuma requisição pendente encontrada.
+25/09/2024 10:50:21: Starting work execution.
+25/09/2024 10:50:21: Access token refreshed successfully.
+25/09/2024 10:50:21: Work execution completed successfully.
+25/09/2024 10:50:21: Nenhuma requisição pendente encontrada.
+25/09/2024 10:50:31: Starting work execution.
+25/09/2024 10:50:31: Access token refreshed successfully.
+25/09/2024 10:50:31: Work execution completed successfully.
+25/09/2024 10:50:31: Nenhuma requisição pendente encontrada.
+25/09/2024 10:50:41: Starting work execution.
+25/09/2024 10:50:41: Access token refreshed successfully.
+25/09/2024 10:50:41: Work execution completed successfully.
+25/09/2024 10:50:41: Nenhuma requisição pendente encontrada.
+25/09/2024 10:50:51: Starting work execution.
+25/09/2024 10:50:51: Access token refreshed successfully.
+25/09/2024 10:50:51: Work execution completed successfully.
+25/09/2024 10:50:51: Nenhuma requisição pendente encontrada.
+25/09/2024 10:51:01: Starting work execution.
+25/09/2024 10:51:01: Access token refreshed successfully.
+25/09/2024 10:51:01: Work execution completed successfully.
+25/09/2024 10:51:01: Nenhuma requisição pendente encontrada.
+25/09/2024 10:51:11: Starting work execution.
+25/09/2024 10:51:11: Access token refreshed successfully.
+25/09/2024 10:51:11: Work execution completed successfully.
+25/09/2024 10:51:11: Nenhuma requisição pendente encontrada.
+25/09/2024 10:51:21: Starting work execution.
+25/09/2024 10:51:21: Access token refreshed successfully.
+25/09/2024 10:51:21: Work execution completed successfully.
+25/09/2024 10:51:21: Nenhuma requisição pendente encontrada.
+25/09/2024 10:51:31: Starting work execution.
+25/09/2024 10:51:31: Access token refreshed successfully.
+25/09/2024 10:51:31: Work execution completed successfully.
+25/09/2024 10:51:31: Nenhuma requisição pendente encontrada.
+25/09/2024 10:51:41: Starting work execution.
+25/09/2024 10:51:41: Access token refreshed successfully.
+25/09/2024 10:51:41: Work execution completed successfully.
+25/09/2024 10:51:41: Nenhuma requisição pendente encontrada.
+25/09/2024 10:51:51: Starting work execution.
+25/09/2024 10:51:51: Access token refreshed successfully.
+25/09/2024 10:51:51: Work execution completed successfully.
+25/09/2024 10:51:51: Nenhuma requisição pendente encontrada.
+25/09/2024 10:52:01: Starting work execution.
+25/09/2024 10:52:01: Access token refreshed successfully.
+25/09/2024 10:52:01: Work execution completed successfully.
+25/09/2024 10:52:01: Nenhuma requisição pendente encontrada.
+25/09/2024 10:52:11: Starting work execution.
+25/09/2024 10:52:11: Access token refreshed successfully.
+25/09/2024 10:52:11: Work execution completed successfully.
+25/09/2024 10:52:11: Nenhuma requisição pendente encontrada.
+25/09/2024 10:52:21: Starting work execution.
+25/09/2024 10:52:21: Access token refreshed successfully.
+25/09/2024 10:52:21: Work execution completed successfully.
+25/09/2024 10:52:21: Nenhuma requisição pendente encontrada.
+25/09/2024 10:52:31: Starting work execution.
+25/09/2024 10:52:31: Access token refreshed successfully.
+25/09/2024 10:52:31: Work execution completed successfully.
+25/09/2024 10:52:31: Nenhuma requisição pendente encontrada.
+25/09/2024 10:52:41: Starting work execution.
+25/09/2024 10:52:41: Access token refreshed successfully.
+25/09/2024 10:52:41: Work execution completed successfully.
+25/09/2024 10:52:41: Nenhuma requisição pendente encontrada.
+25/09/2024 10:52:51: Starting work execution.
+25/09/2024 10:52:51: Access token refreshed successfully.
+25/09/2024 10:52:51: Work execution completed successfully.
+25/09/2024 10:52:51: Nenhuma requisição pendente encontrada.
+25/09/2024 10:53:01: Starting work execution.
+25/09/2024 10:53:01: Access token refreshed successfully.
+25/09/2024 10:53:01: Work execution completed successfully.
+25/09/2024 10:53:01: Nenhuma requisição pendente encontrada.
+25/09/2024 10:53:11: Starting work execution.
+25/09/2024 10:53:11: Access token refreshed successfully.
+25/09/2024 10:53:11: Work execution completed successfully.
+25/09/2024 10:53:11: Nenhuma requisição pendente encontrada.
+25/09/2024 10:53:21: Starting work execution.
+25/09/2024 10:53:21: Access token refreshed successfully.
+25/09/2024 10:53:21: Work execution completed successfully.
+25/09/2024 10:53:21: Nenhuma requisição pendente encontrada.
+25/09/2024 10:53:31: Starting work execution.
+25/09/2024 10:53:31: Access token refreshed successfully.
+25/09/2024 10:53:31: Work execution completed successfully.
+25/09/2024 10:53:31: Nenhuma requisição pendente encontrada.
+25/09/2024 10:53:41: Starting work execution.
+25/09/2024 10:53:41: Access token refreshed successfully.
+25/09/2024 10:53:41: Work execution completed successfully.
+25/09/2024 10:53:41: Nenhuma requisição pendente encontrada.
+25/09/2024 10:53:51: Starting work execution.
+25/09/2024 10:53:51: Access token refreshed successfully.
+25/09/2024 10:53:51: Work execution completed successfully.
+25/09/2024 10:53:51: Nenhuma requisição pendente encontrada.
+25/09/2024 10:54:01: Starting work execution.
+25/09/2024 10:54:01: Access token refreshed successfully.
+25/09/2024 10:54:01: Work execution completed successfully.
+25/09/2024 10:54:01: Nenhuma requisição pendente encontrada.
+25/09/2024 10:54:11: Starting work execution.
+25/09/2024 10:54:11: Access token refreshed successfully.
+25/09/2024 10:54:11: Work execution completed successfully.
+25/09/2024 10:54:11: Nenhuma requisição pendente encontrada.
+25/09/2024 10:54:21: Starting work execution.
+25/09/2024 10:54:21: Access token refreshed successfully.
+25/09/2024 10:54:21: Work execution completed successfully.
+25/09/2024 10:54:21: Nenhuma requisição pendente encontrada.
+25/09/2024 10:54:31: Starting work execution.
+25/09/2024 10:54:31: Access token refreshed successfully.
+25/09/2024 10:54:31: Work execution completed successfully.
+25/09/2024 10:54:31: Nenhuma requisição pendente encontrada.
+25/09/2024 10:54:41: Starting work execution.
+25/09/2024 10:54:41: Access token refreshed successfully.
+25/09/2024 10:54:41: Work execution completed successfully.
+25/09/2024 10:54:41: Nenhuma requisição pendente encontrada.
+25/09/2024 10:54:51: Starting work execution.
+25/09/2024 10:54:51: Access token refreshed successfully.
+25/09/2024 10:54:51: Work execution completed successfully.
+25/09/2024 10:54:51: Nenhuma requisição pendente encontrada.
+25/09/2024 10:55:01: Starting work execution.
+25/09/2024 10:55:01: Access token refreshed successfully.
+25/09/2024 10:55:01: Work execution completed successfully.
+25/09/2024 10:55:01: Nenhuma requisição pendente encontrada.
+25/09/2024 10:55:11: Starting work execution.
+25/09/2024 10:55:11: Access token refreshed successfully.
+25/09/2024 10:55:11: Work execution completed successfully.
+25/09/2024 10:55:11: Nenhuma requisição pendente encontrada.
+25/09/2024 10:55:21: Starting work execution.
+25/09/2024 10:55:21: Access token refreshed successfully.
+25/09/2024 10:55:21: Work execution completed successfully.
+25/09/2024 10:55:21: Nenhuma requisição pendente encontrada.
+25/09/2024 10:55:31: Starting work execution.
+25/09/2024 10:55:31: Access token refreshed successfully.
+25/09/2024 10:55:31: Work execution completed successfully.
+25/09/2024 10:55:31: Nenhuma requisição pendente encontrada.
+25/09/2024 10:55:41: Starting work execution.
+25/09/2024 10:55:41: Access token refreshed successfully.
+25/09/2024 10:55:41: Work execution completed successfully.
+25/09/2024 10:55:41: Nenhuma requisição pendente encontrada.
+25/09/2024 10:55:51: Starting work execution.
+25/09/2024 10:55:51: Access token refreshed successfully.
+25/09/2024 10:55:51: Work execution completed successfully.
+25/09/2024 10:55:51: Nenhuma requisição pendente encontrada.
+25/09/2024 10:56:01: Starting work execution.
+25/09/2024 10:56:01: Access token refreshed successfully.
+25/09/2024 10:56:01: Work execution completed successfully.
+25/09/2024 10:56:01: Nenhuma requisição pendente encontrada.
+25/09/2024 10:56:11: Starting work execution.
+25/09/2024 10:56:11: Access token refreshed successfully.
+25/09/2024 10:56:11: Work execution completed successfully.
+25/09/2024 10:56:11: Nenhuma requisição pendente encontrada.
+25/09/2024 10:56:21: Starting work execution.
+25/09/2024 10:56:21: Access token refreshed successfully.
+25/09/2024 10:56:21: Work execution completed successfully.
+25/09/2024 10:56:21: Nenhuma requisição pendente encontrada.
+25/09/2024 10:56:31: Starting work execution.
+25/09/2024 10:56:31: Access token refreshed successfully.
+25/09/2024 10:56:31: Work execution completed successfully.
+25/09/2024 10:56:31: Nenhuma requisição pendente encontrada.
+25/09/2024 10:56:41: Starting work execution.
+25/09/2024 10:56:41: Access token refreshed successfully.
+25/09/2024 10:56:41: Work execution completed successfully.
+25/09/2024 10:56:41: Nenhuma requisição pendente encontrada.
+25/09/2024 10:56:51: Starting work execution.
+25/09/2024 10:56:51: Access token refreshed successfully.
+25/09/2024 10:56:51: Work execution completed successfully.
+25/09/2024 10:56:51: Nenhuma requisição pendente encontrada.
+25/09/2024 10:57:01: Starting work execution.
+25/09/2024 10:57:01: Access token refreshed successfully.
+25/09/2024 10:57:01: Work execution completed successfully.
+25/09/2024 10:57:01: Nenhuma requisição pendente encontrada.
+25/09/2024 10:57:11: Starting work execution.
+25/09/2024 10:57:11: Access token refreshed successfully.
+25/09/2024 10:57:11: Work execution completed successfully.
+25/09/2024 10:57:11: Nenhuma requisição pendente encontrada.
+25/09/2024 10:57:21: Starting work execution.
+25/09/2024 10:57:21: Access token refreshed successfully.
+25/09/2024 10:57:21: Work execution completed successfully.
+25/09/2024 10:57:21: Nenhuma requisição pendente encontrada.
+25/09/2024 10:57:31: Starting work execution.
+25/09/2024 10:57:31: Access token refreshed successfully.
+25/09/2024 10:57:31: Work execution completed successfully.
+25/09/2024 10:57:31: Nenhuma requisição pendente encontrada.
+25/09/2024 10:57:41: Starting work execution.
+25/09/2024 10:57:41: Access token refreshed successfully.
+25/09/2024 10:57:41: Work execution completed successfully.
+25/09/2024 10:57:41: Nenhuma requisição pendente encontrada.
+25/09/2024 10:57:51: Starting work execution.
+25/09/2024 10:57:51: Access token refreshed successfully.
+25/09/2024 10:57:51: Work execution completed successfully.
+25/09/2024 10:57:51: Nenhuma requisição pendente encontrada.
+25/09/2024 10:58:01: Starting work execution.
+25/09/2024 10:58:01: Access token refreshed successfully.
+25/09/2024 10:58:01: Work execution completed successfully.
+25/09/2024 10:58:01: Nenhuma requisição pendente encontrada.
+25/09/2024 10:58:11: Starting work execution.
+25/09/2024 10:58:11: Access token refreshed successfully.
+25/09/2024 10:58:11: Work execution completed successfully.
+25/09/2024 10:58:11: Nenhuma requisição pendente encontrada.
+25/09/2024 10:58:21: Starting work execution.
+25/09/2024 10:58:21: Access token refreshed successfully.
+25/09/2024 10:58:21: Work execution completed successfully.
+25/09/2024 10:58:21: Nenhuma requisição pendente encontrada.
+25/09/2024 10:58:31: Starting work execution.
+25/09/2024 10:58:31: Access token refreshed successfully.
+25/09/2024 10:58:31: Work execution completed successfully.
+25/09/2024 10:58:31: Nenhuma requisição pendente encontrada.
+25/09/2024 10:58:41: Starting work execution.
+25/09/2024 10:58:41: Access token refreshed successfully.
+25/09/2024 10:58:41: Work execution completed successfully.
+25/09/2024 10:58:41: Nenhuma requisição pendente encontrada.
+25/09/2024 10:58:51: Starting work execution.
+25/09/2024 10:58:51: Access token refreshed successfully.
+25/09/2024 10:58:51: Work execution completed successfully.
+25/09/2024 10:58:51: Nenhuma requisição pendente encontrada.
+25/09/2024 10:59:01: Starting work execution.
+25/09/2024 10:59:01: Access token refreshed successfully.
+25/09/2024 10:59:01: Work execution completed successfully.
+25/09/2024 10:59:01: Nenhuma requisição pendente encontrada.

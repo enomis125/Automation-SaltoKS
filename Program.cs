@@ -221,7 +221,7 @@ Notas.Log("Refreshing access token."); // Adicione log aqui
                             accessToken = @AccessToken, 
                             refreshToken = @RefreshToken, 
                             tokenExpiration = @TokenExpiration 
-                          WHERE requestConfigID = 2";
+                          WHERE requestConfigID = 1";
 
             using (var command = new SqlCommand(query, connection))
             {
