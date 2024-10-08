@@ -1,0 +1,102 @@
+2024-10-08 15:38:34: Service is starting...
+2024-10-08 15:38:34: Script SQL executado com sucesso.
+2024-10-08 15:38:34: Service started successfully.
+2024-10-08 15:38:34: Starting work execution.
+2024-10-08 15:38:34: Access token refreshed successfully.
+2024-10-08 15:38:34: timeToAlive atualizado com sucesso.
+2024-10-08 15:38:35: ID do Site Selecionado: 07cdf9ac-3681-4dcf-b8d0-ddb81197b0b3
+2024-10-08 15:38:35: Work execution completed successfully.
+2024-10-08 15:38:35: Resposta da API ao criar usuário: 
+2024-10-08 15:38:35: {"ErrorCode":"1101","Message":"Validation failed: This email address is already in use."}
+2024-10-08 15:38:35: Erro ao criar usuário: {"ErrorCode":"1101","Message":"Validation failed: This email address is already in use."}
+2024-10-08 15:38:37: Nenhum access group encontrado para recordID 37 com o ReservationID 1
+2024-10-08 15:38:37: Nenhum access group encontrado para recordID 38 com o ReservationID 1
+2024-10-08 15:38:37: Nenhum access group encontrado para recordID 39 com o ReservationID 1
+2024-10-08 15:38:37: Nenhum access group encontrado para recordID 40 com o ReservationID 1
+2024-10-08 15:38:38: Nenhum access group encontrado para recordID 41 com o ReservationID 1993
+2024-10-08 15:38:38: Nenhum access group encontrado para recordID 42 com o ReservationID 13
+2024-10-08 15:38:38: Nenhum access group encontrado para recordID 43 com o ReservationID 1234
+2024-10-08 15:38:38: Nenhum access group encontrado para recordID 45 com o ReservationID 123
+2024-10-08 15:38:38: Nenhum access group encontrado para recordID 46 com o ReservationID 1234
+2024-10-08 15:38:39: Nenhum access group encontrado para recordID 47 com o ReservationID 12
+2024-10-08 15:38:39: A data de validade 09/10/2024 15:16:20 ainda não expirou para recordID 51. Não verificando os access groups.
+2024-10-08 16:06:03: Service is starting...
+2024-10-08 16:06:04: Script SQL executado com sucesso.
+2024-10-08 16:06:04: Service started successfully.
+2024-10-08 16:06:04: Starting work execution.
+2024-10-08 16:06:04: Access token refreshed successfully.
+2024-10-08 16:06:04: timeToAlive atualizado com sucesso.
+2024-10-08 16:06:04: ID do Site Selecionado: 07cdf9ac-3681-4dcf-b8d0-ddb81197b0b3
+2024-10-08 16:06:04: Work execution completed successfully.
+2024-10-08 16:06:04: Resposta da API ao criar usuário: 
+2024-10-08 16:06:04: {"ErrorCode":"1101","Message":"Validation failed: This email address is already in use."}
+2024-10-08 16:06:04: Erro ao criar usuário: {"ErrorCode":"1101","Message":"Validation failed: This email address is already in use."}
+2024-10-08 16:06:06: Nenhum access group encontrado para recordID 37 com o ReservationID 1
+2024-10-08 16:06:06: Nenhum access group encontrado para recordID 38 com o ReservationID 1
+2024-10-08 16:06:07: Nenhum access group encontrado para recordID 39 com o ReservationID 1
+2024-10-08 16:06:07: Nenhum access group encontrado para recordID 40 com o ReservationID 1
+2024-10-08 16:06:07: Nenhum access group encontrado para recordID 41 com o ReservationID 1993
+2024-10-08 16:06:07: Nenhum access group encontrado para recordID 42 com o ReservationID 13
+2024-10-08 16:06:07: Nenhum access group encontrado para recordID 43 com o ReservationID 1234
+2024-10-08 16:06:08: Nenhum access group encontrado para recordID 45 com o ReservationID 123
+2024-10-08 16:06:09: Nenhum access group encontrado para recordID 46 com o ReservationID 1234
+2024-10-08 16:06:09: Nenhum access group encontrado para recordID 47 com o ReservationID 12
+2024-10-08 16:06:09: A data de validade 09/10/2024 15:16:20 ainda não expirou para recordID 51. Não verificando os access groups.
+2024-10-08 16:06:34: Starting work execution.
+2024-10-08 16:06:34: Access token refreshed successfully.
+2024-10-08 16:06:34: timeToAlive atualizado com sucesso.
+2024-10-08 16:06:34: Work execution completed successfully.
+2024-10-08 16:06:34: Resposta da API ao criar usuário: 
+2024-10-08 16:06:34: {"ErrorCode":"1101","Message":"Validation failed: This email address is already in use."}
+2024-10-08 16:06:34: Erro ao criar usuário: {"ErrorCode":"1101","Message":"Validation failed: This email address is already in use."}
+2024-10-08 16:06:34: Nenhum access group encontrado para recordID 37 com o ReservationID 1
+2024-10-08 16:06:35: Nenhum access group encontrado para recordID 38 com o ReservationID 1
+2024-10-08 16:06:35: Nenhum access group encontrado para recordID 39 com o ReservationID 1
+2024-10-08 16:06:35: Nenhum access group encontrado para recordID 40 com o ReservationID 1
+2024-10-08 16:06:35: Nenhum access group encontrado para recordID 41 com o ReservationID 1993
+2024-10-08 16:06:35: Nenhum access group encontrado para recordID 42 com o ReservationID 13
+2024-10-08 16:06:36: Nenhum access group encontrado para recordID 43 com o ReservationID 1234
+2024-10-08 16:06:36: Nenhum access group encontrado para recordID 45 com o ReservationID 123
+2024-10-08 16:06:36: Nenhum access group encontrado para recordID 46 com o ReservationID 1234
+2024-10-08 16:06:36: Nenhum access group encontrado para recordID 47 com o ReservationID 12
+2024-10-08 16:06:36: A data de validade 09/10/2024 15:16:20 ainda não expirou para recordID 51. Não verificando os access groups.
+2024-10-08 16:07:04: Starting work execution.
+2024-10-08 16:07:04: Access token refreshed successfully.
+2024-10-08 16:07:04: timeToAlive atualizado com sucesso.
+2024-10-08 16:07:04: Work execution completed successfully.
+2024-10-08 16:07:04: Resposta da API ao criar usuário: 
+2024-10-08 16:07:04: {"ErrorCode":"1101","Message":"Validation failed: This email address is already in use."}
+2024-10-08 16:07:04: Erro ao criar usuário: {"ErrorCode":"1101","Message":"Validation failed: This email address is already in use."}
+2024-10-08 16:07:04: Nenhum access group encontrado para recordID 37 com o ReservationID 1
+2024-10-08 16:07:04: Nenhum access group encontrado para recordID 38 com o ReservationID 1
+2024-10-08 16:07:05: Nenhum access group encontrado para recordID 39 com o ReservationID 1
+2024-10-08 16:07:05: Nenhum access group encontrado para recordID 40 com o ReservationID 1
+2024-10-08 16:07:05: Nenhum access group encontrado para recordID 41 com o ReservationID 1993
+2024-10-08 16:07:05: Nenhum access group encontrado para recordID 42 com o ReservationID 13
+2024-10-08 16:07:06: Nenhum access group encontrado para recordID 43 com o ReservationID 1234
+2024-10-08 16:07:06: Nenhum access group encontrado para recordID 45 com o ReservationID 123
+2024-10-08 16:07:06: Nenhum access group encontrado para recordID 46 com o ReservationID 1234
+2024-10-08 16:07:06: Nenhum access group encontrado para recordID 47 com o ReservationID 12
+2024-10-08 16:07:06: A data de validade 09/10/2024 15:16:20 ainda não expirou para recordID 51. Não verificando os access groups.
+2024-10-08 16:40:53: Service is starting...
+2024-10-08 16:40:54: Script SQL executado com sucesso.
+2024-10-08 16:40:54: Service started successfully.
+2024-10-08 16:40:54: Starting work execution.
+2024-10-08 16:40:54: Refreshing access token.
+2024-10-08 16:40:54: timeToAlive atualizado com sucesso.
+2024-10-08 16:40:54: ID do Site Selecionado: 07cdf9ac-3681-4dcf-b8d0-ddb81197b0b3
+2024-10-08 16:40:54: Work execution completed successfully.
+2024-10-08 16:40:55: Resposta da API ao criar usuário: 
+2024-10-08 16:40:55: {"ErrorCode":"1101","Message":"Validation failed: This email address is already in use."}
+2024-10-08 16:40:55: Erro ao criar usuário: {"ErrorCode":"1101","Message":"Validation failed: This email address is already in use."}
+2024-10-08 16:40:55: Nenhum access group encontrado para recordID 37 com o ReservationID 1
+2024-10-08 16:40:55: Nenhum access group encontrado para recordID 38 com o ReservationID 1
+2024-10-08 16:40:55: Nenhum access group encontrado para recordID 39 com o ReservationID 1
+2024-10-08 16:40:55: Nenhum access group encontrado para recordID 40 com o ReservationID 1
+2024-10-08 16:40:56: Nenhum access group encontrado para recordID 41 com o ReservationID 1993
+2024-10-08 16:40:56: Nenhum access group encontrado para recordID 42 com o ReservationID 13
+2024-10-08 16:40:56: Nenhum access group encontrado para recordID 43 com o ReservationID 1234
+2024-10-08 16:40:56: Nenhum access group encontrado para recordID 45 com o ReservationID 123
+2024-10-08 16:40:57: Nenhum access group encontrado para recordID 46 com o ReservationID 1234
+2024-10-08 16:40:57: Nenhum access group encontrado para recordID 47 com o ReservationID 12
+2024-10-08 16:40:57: A data de validade 09/10/2024 15:16:20 ainda não expirou para recordID 51. Não verificando os access groups.

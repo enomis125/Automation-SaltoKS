@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\cokas\\Desktop\\Automation-SaltoKS\\salto.csproj": {}
+    "D:\\micronet\\salto-automation\\salto.csproj": {}
   },
   "projects": {
-    "C:\\Users\\cokas\\Desktop\\Automation-SaltoKS\\salto.csproj": {
+    "D:\\micronet\\salto-automation\\salto.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\cokas\\Desktop\\Automation-SaltoKS\\salto.csproj",
+        "projectUniqueName": "D:\\micronet\\salto-automation\\salto.csproj",
         "projectName": "salto",
-        "projectPath": "C:\\Users\\cokas\\Desktop\\Automation-SaltoKS\\salto.csproj",
-        "packagesPath": "C:\\Users\\cokas\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\cokas\\Desktop\\Automation-SaltoKS\\obj\\",
+        "projectPath": "D:\\micronet\\salto-automation\\salto.csproj",
+        "packagesPath": "C:\\Users\\pista\\.nuget\\packages\\",
+        "outputPath": "D:\\micronet\\salto-automation\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\cokas\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\pista\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0-windows"
