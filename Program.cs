@@ -177,7 +177,7 @@ private async Task UpdateTimeToAlive()
         {
             await connection.OpenAsync();
 
-            string query = "UPDATE [dbo].[xsetup] SET xvalue = @currentTime WHERE xsection = 'SysConector' AND xkey = 'timeToAlive'";
+            string query = "UPDATE [proteluser].[xsetup] SET xvalue = @currentTime WHERE xsection = 'SysConector' AND xkey = 'timeToAlive'";
             using (SqlCommand command = new SqlCommand(query, connection))
             {
                 command.Parameters.AddWithValue("@currentTime", DateTime.UtcNow.ToString("o")); // Formato ISO 8601
@@ -212,7 +212,7 @@ private static async Task<(string tokenUrl, string clientId, string apiUrl, stri
             // Consulta para buscar os valores da tabela xsetup
             string query = @"
                 SELECT xkey, xvalue 
-                FROM [dbo].[xsetup] 
+                FROM [proteluser].[xsetup] 
                 WHERE xsection = 'SysConector' 
                 AND xkey IN ('tokenURL', 'clientId', 'apiUrl', 'supportEmail', 'noReplyEmail', 'noReplyPassword')";
 

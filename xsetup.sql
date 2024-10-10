@@ -52,3 +52,4 @@ BEGIN
         (@Mpehotel, 'SysConector', 'password', @password),
         (@Mpehotel, 'SysConector', 'supportEmail', @supportEmail)
 END
+
