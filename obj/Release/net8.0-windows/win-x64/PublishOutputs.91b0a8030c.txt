@@ -181,7 +181,7 @@ D:\micronet\salto-automation\bin\Release\net8.0-windows\win-x64\publish\createdu
 D:\micronet\salto-automation\bin\Release\net8.0-windows\win-x64\publish\hostfxr.dll
 D:\micronet\salto-automation\bin\Release\net8.0-windows\win-x64\publish\hostpolicy.dll
 D:\micronet\salto-automation\bin\Release\net8.0-windows\win-x64\publish\mscordaccore.dll
-D:\micronet\salto-automation\bin\Release\net8.0-windows\win-x64\publish\mscordaccore_amd64_amd64_8.0.824.36612.dll
+D:\micronet\salto-automation\bin\Release\net8.0-windows\win-x64\publish\mscordaccore_amd64_amd64_8.0.1024.46610.dll
 D:\micronet\salto-automation\bin\Release\net8.0-windows\win-x64\publish\mscordbi.dll
 D:\micronet\salto-automation\bin\Release\net8.0-windows\win-x64\publish\mscorrc.dll
 D:\micronet\salto-automation\bin\Release\net8.0-windows\win-x64\publish\msquic.dll

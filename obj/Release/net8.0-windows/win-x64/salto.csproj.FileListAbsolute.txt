@@ -392,7 +392,6 @@ D:\micronet\salto-automation\bin\Release\net8.0-windows\win-x64\createdump.exe
 D:\micronet\salto-automation\bin\Release\net8.0-windows\win-x64\hostfxr.dll
 D:\micronet\salto-automation\bin\Release\net8.0-windows\win-x64\hostpolicy.dll
 D:\micronet\salto-automation\bin\Release\net8.0-windows\win-x64\mscordaccore.dll
-D:\micronet\salto-automation\bin\Release\net8.0-windows\win-x64\mscordaccore_amd64_amd64_8.0.824.36612.dll
 D:\micronet\salto-automation\bin\Release\net8.0-windows\win-x64\mscordbi.dll
 D:\micronet\salto-automation\bin\Release\net8.0-windows\win-x64\mscorrc.dll
 D:\micronet\salto-automation\bin\Release\net8.0-windows\win-x64\msquic.dll
@@ -408,3 +407,4 @@ D:\micronet\salto-automation\obj\Release\net8.0-windows\win-x64\refint\salto.dll
 D:\micronet\salto-automation\obj\Release\net8.0-windows\win-x64\salto.pdb
 D:\micronet\salto-automation\obj\Release\net8.0-windows\win-x64\salto.genruntimeconfig.cache
 D:\micronet\salto-automation\obj\Release\net8.0-windows\win-x64\ref\salto.dll
+D:\micronet\salto-automation\bin\Release\net8.0-windows\win-x64\mscordaccore_amd64_amd64_8.0.1024.46610.dll

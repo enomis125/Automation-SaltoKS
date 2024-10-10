@@ -22,10 +22,10 @@ SET @password = 'emailpassword'
 SET @supportEmail = 'ssantos.micronet@gmail.com' 
 
 -- Verifica se a tabela dbo.xsetup existe e, se não, cria a tabela
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[xsetup]') AND type in (N'U'))
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[proteluser].[xsetup]') AND type in (N'U'))
 BEGIN
     -- Cria a tabela dbo.xsetup se ela não existir
-    CREATE TABLE [dbo].[xsetup] (
+    CREATE TABLE [proteluser].[xsetup] (
         Ref INT PRIMARY KEY IDENTITY(1,1), 
         Mpehotel INT NOT NULL,
         xsection NVARCHAR(255) NOT NULL,
@@ -35,10 +35,10 @@ BEGIN
 END
 
 -- Verifica se já existe um registro para o 'SysConector'
-IF NOT EXISTS (SELECT 1 FROM [dbo].[xsetup] WHERE xsection = 'SysConector')
+IF NOT EXISTS (SELECT 1 FROM [proteluser].[xsetup] WHERE xsection = 'SysConector')
 BEGIN
     -- Insere os dados na tabela
-    INSERT INTO [dbo].[xsetup] (Mpehotel, xsection, xkey, xvalue)
+    INSERT INTO [proteluser].[xsetup] (Mpehotel, xsection, xkey, xvalue)
     VALUES 
         (@Mpehotel, 'SysConector', 'tokenURL', @tokenURL),
         (@Mpehotel, 'SysConector', 'clientId', @clientId),
