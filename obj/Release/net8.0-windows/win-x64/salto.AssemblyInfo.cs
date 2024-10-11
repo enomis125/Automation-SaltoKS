@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("salto")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1a44ef1a7659bacee191abb5862c16ac6274a12a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4bc1f39962c1c5f3effb9b5bd231bd3ce0990f22")]
 [assembly: System.Reflection.AssemblyProductAttribute("salto")]
 [assembly: System.Reflection.AssemblyTitleAttribute("salto")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
