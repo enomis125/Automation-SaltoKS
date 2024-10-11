@@ -397,43 +397,57 @@ private static async Task<(string tokenUrl, string clientId, string apiUrl, stri
         }
     }
 
-    private static async Task SendEmailWithPin(string email, string pinCode, string guestName)
+private static async Task SendEmailWithPin(string email, string pinCode, string guestName)
+{
+    try
     {
-        try
+        // Obtém a string de conexão da base de dados
+        string connectionString = ReadConnectionStringFromFile("connectionString.txt");
+
+        // Busca os emails e senhas na base de dados
+        var (tokenUrl, clientId, apiUrlBase, supportEmail, noReplyEmail, noReplyPassword) = await GetSysConectorSettingsFromDatabase(connectionString);
+
+        // Verifica se o email ou senha estão vazios
+        if (string.IsNullOrEmpty(noReplyEmail) || string.IsNullOrEmpty(noReplyPassword))
         {
-            var smtpClient = new SmtpClient("smtp.gmail.com") // Defina o servidor SMTP
-            {
-                Port = 587, // Defina a porta correta
-                Credentials = new System.Net.NetworkCredential("pmonteiro.micronet@gmail.com", "qaev zpjt rnpt nnao"), // Insira o email e senha corretos
-                EnableSsl = true,
-            };
-
-            string subject = "Seu código PIN de acesso";
-            string body = $"Olá {guestName},\n\n" +
-                          $"Aqui está o seu código PIN de acesso: {pinCode}\n\n" +
-                          "Este PIN pode ser usado para acessar as instalações até a data de expiração.\n\n" +
-                          "Atenciosamente,\nEquipe de Suporte";
-
-            var mailMessage = new MailMessage
-            {
-                From = new MailAddress("pmonteiro.micronet@gmail.com"),
-                Subject = subject,
-                Body = body,
-                IsBodyHtml = false,
-            };
-            mailMessage.To.Add(email);
-
-            await smtpClient.SendMailAsync(mailMessage);
-            Notas.Log($"Email enviado com sucesso para: {email}");
+            Notas.Log("Erro: noReplyEmail ou noReplyPassword não encontrados na base de dados.");
+            return; // Adicionando um retorno para evitar envio de e-mail sem credenciais
         }
-        catch (Exception ex)
+
+        var smtpClient = new SmtpClient("smtp.gmail.com") // Defina o servidor SMTP
         {
-            Notas.Log($"Falha ao enviar email para {email}. Erro: {ex.Message}");
+            Port = 587, // Defina a porta correta
+            Credentials = new System.Net.NetworkCredential(noReplyEmail, noReplyPassword), // Usa o noReplyEmail e noReplyPassword da base de dados
+            EnableSsl = true,
+        };
 
-            string message = "Falha ao enviar email para: " + email + "\nErro: " + ex.Message;
-            SendErrorEmail("Erro ao enviar email com pin para hóspede", message);
-        }
+        string subject = "Seu código PIN de acesso";
+        string body = $"Olá {guestName},\n\n" +
+                      $"Aqui está o seu código PIN de acesso: {pinCode}\n\n" +
+                      "Este PIN pode ser usado para acessar as instalações até a data de expiração.\n\n" +
+                      "Atenciosamente,\nEquipe de Suporte";
+
+        var mailMessage = new MailMessage
+        {
+            From = new MailAddress(noReplyEmail), // Usa o noReplyEmail da base de dados
+            Subject = subject,
+            Body = body,
+            IsBodyHtml = false,
+        };
+        mailMessage.To.Add(email); // Email do hóspede
+
+        await smtpClient.SendMailAsync(mailMessage);
+        Notas.Log($"Email enviado com sucesso para: {email}");
     }
+    catch (Exception ex)
+    {
+        Notas.Log($"Falha ao enviar email para {email}. Erro: {ex.Message}");
+
+        string message = "Falha ao enviar email para: " + email + "\nErro: " + ex.Message;
+        await SendErrorEmail("Erro ao enviar email com pin para hóspede", message); // Envia o email de erro
+    }
+}
+
 
 public static async Task SendErrorEmail(string subject, string message)
 {
@@ -599,6 +613,40 @@ public static async Task SendErrorEmail(string subject, string message)
                         continue; // Avançar para o próximo registro
                     }
                 }
+
+                // Query para buscar os registros onde 'sendPinAgain' é 'S'
+        var query = "SELECT recordID, protelGuestName, protelGuestEmail, code FROM requestRecordsCode WHERE sendPinAgain = 'S'";
+
+        using (var command = new SqlCommand(query, connection))
+        {
+            using (var reader = await command.ExecuteReaderAsync())
+            {
+                while (await reader.ReadAsync())
+                {
+                    var recordId = reader["recordID"].ToString();
+                    var guestName = reader["protelGuestName"].ToString();
+                    var guestEmail = reader["protelGuestEmail"].ToString();
+                    var pinCode = reader["code"].ToString();
+
+                    Console.WriteLine($"Enviando o PIN novamente. recordID: {recordId}, Nome: {guestName}, Email: {guestEmail}");
+
+                    try
+                    {
+                        // Enviar o e-mail com o código PIN do campo 'code'
+                        await SendEmailWithPin(guestEmail, pinCode, guestName);
+
+                        // Atualizar o campo 'sendPinAgain' para 'N' após o envio do PIN
+                        await UpdateSendPinAgainStatus(connection, recordId);
+                    }
+                    catch (Exception ex)
+                    {
+                        // Registrar o erro no banco de dados
+                        Console.WriteLine($"Erro ao enviar email para {guestEmail}. Erro: {ex.Message}");
+                        await LogErrorToDatabase(connection, recordId, selectedSiteId, null, null, ex.Message, null, 500, "Erro Interno ao enviar 2 via de pin");
+                    }
+                }
+            }
+        }
             }
         }
 
@@ -640,6 +688,19 @@ public static async Task SendErrorEmail(string subject, string message)
                 }
             }
         }
+    }
+}
+
+private static async Task UpdateSendPinAgainStatus(SqlConnection connection, string recordId)
+{
+    var updateQuery = "UPDATE requestRecordsCode SET sendPinAgain = 'N' WHERE recordID = @recordID";
+
+    using (var updateCommand = new SqlCommand(updateQuery, connection))
+    {
+        updateCommand.Parameters.AddWithValue("@recordID", recordId);
+
+        await updateCommand.ExecuteNonQueryAsync();
+        Console.WriteLine($"Campo sendPinAgain atualizado para 'N' para o recordID: {recordId}");
     }
 }
 
@@ -1417,46 +1478,51 @@ private static async Task LogErrorToDatabase(SqlConnection connection, string re
 {
     try
     {
-       var updateCommand = new SqlCommand(@"
-                UPDATE requestRecordsCode SET 
-                    requestDate = @RequestDate,
-                    siteID = @SiteID,
-                    saltoUserID = @SaltoUserID,
-                    requestBody = @RequestBody,
-                    responseBody = @ResponseBody,
-                    requestURL = @RequestURL,
-                    responseStatus = @ResponseStatus,
-                    requestType = @RequestType
-                WHERE recordID = @RecordID;
-            ", connection);
+        // Atualiza os detalhes do erro no banco de dados
+        var updateCommand = new SqlCommand(@"
+            UPDATE requestRecordsCode SET 
+                requestDate = @RequestDate,
+                siteID = @SiteID,
+                saltoUserID = @SaltoUserID,
+                requestBody = @RequestBody,
+                responseBody = @ResponseBody,
+                requestURL = @RequestURL,
+                responseStatus = @ResponseStatus,
+                requestType = @RequestType
+            WHERE recordID = @RecordID;
+        ", connection);
 
-            updateCommand.Parameters.AddWithValue("@RequestDate", DateTime.Now);
-            updateCommand.Parameters.AddWithValue("@SiteID", siteId);
-            updateCommand.Parameters.AddWithValue("@SaltoUserID", userId);
-            updateCommand.Parameters.AddWithValue("@RequestBody", (object)requestBody ?? DBNull.Value);
-            updateCommand.Parameters.AddWithValue("@ResponseBody", (object)responseBody ?? DBNull.Value);
-            updateCommand.Parameters.AddWithValue("@RequestURL", (object)requestUrl ?? DBNull.Value);
-            updateCommand.Parameters.AddWithValue("@ResponseStatus", responseStatus);
-            updateCommand.Parameters.AddWithValue("@RequestType", requestType);
-            updateCommand.Parameters.AddWithValue("@RecordID", recordId);
+        // Adiciona os parâmetros para a query
+        updateCommand.Parameters.AddWithValue("@RequestDate", DateTime.Now);
+        updateCommand.Parameters.AddWithValue("@SiteID", (object)siteId ?? DBNull.Value);
+        updateCommand.Parameters.AddWithValue("@SaltoUserID", (object)userId ?? DBNull.Value);
+        updateCommand.Parameters.AddWithValue("@RequestBody", (object)requestBody ?? DBNull.Value);
+        updateCommand.Parameters.AddWithValue("@ResponseBody", (object)responseBody ?? DBNull.Value);
+        updateCommand.Parameters.AddWithValue("@RequestURL", (object)requestUrl ?? DBNull.Value);
+        updateCommand.Parameters.AddWithValue("@ResponseStatus", responseStatus);
+        updateCommand.Parameters.AddWithValue("@RequestType", requestType);
+        updateCommand.Parameters.AddWithValue("@RecordID", recordId);
 
-            await updateCommand.ExecuteNonQueryAsync();
+        // Executa o comando de atualização
+        await updateCommand.ExecuteNonQueryAsync();
 
-            Console.WriteLine($"Erro atualizado no banco de dados para o recordID {recordId}.");
+        Console.WriteLine($"Erro atualizado no banco de dados para o recordID {recordId}.");
 
-            // Construa o corpo da mensagem
-            string message = "Erro ao atualizar o registo com o recordID: " + recordId;
-            SendErrorEmail("Erro: Falha aao atualizar registo", message);
-        }
+        // Constrói a mensagem de erro para enviar por email (opcional)
+        string message = $"Erro ao processar o registro com o recordID: {recordId}";
+        SendErrorEmail("Erro: Falha ao atualizar registro", message);
+    }
     catch (Exception ex)
     {
-        Console.WriteLine($"Erro ao registar erro na base de dados para o recordID {recordId}: {ex.Message}");
+        // Trata erros durante a atualização no banco de dados
+        Console.WriteLine($"Erro ao registrar erro na base de dados para o recordID {recordId}: {ex.Message}");
 
-        // Construa o corpo da mensagem
-            string message = "Erro ao atualizar o registo com o recordID: " + recordId + "\nMensagem: " + ex.Message;
-            SendErrorEmail("Erro: Falha ao atualizar registo", message);
+        // Constrói a mensagem de erro para enviar por email
+        string message = $"Erro ao atualizar o registro com o recordID: {recordId}\nMensagem: {ex.Message}";
+        SendErrorEmail("Erro: Falha ao atualizar registro", message);
     }
 }
+
 
 public static void Main(string[] args)
     {

@@ -1,0 +1,161 @@
+2024-10-11 15:57:29: Service is starting...
+2024-10-11 15:57:29: Script SQL executado com sucesso.
+2024-10-11 15:57:29: Service started successfully.
+2024-10-11 15:57:29: Starting work execution.
+2024-10-11 15:57:29: Access token refreshed successfully.
+2024-10-11 15:57:29: timeToAlive atualizado com sucesso.
+2024-10-11 15:57:29: ID do Site Selecionado: 07cdf9ac-3681-4dcf-b8d0-ddb81197b0b3
+2024-10-11 15:57:29: Work execution completed successfully.
+2024-10-11 15:57:30: Resposta da API ao criar usuário: 
+2024-10-11 15:57:30: {"id":"998344ec-66a7-434f-8d8f-7974efd36301","user":{"email":"smscastelo@gmail.com","image_url":null,"tag_number":null,"is_managed_by_current_site":true,"has_profile":false,"id":"368eb588-aecd-482d-aaf8-73d641c0ba9c","first_name":"Alameda","last_name":"Guest"},"roles":[{"id":"8f6081a3-80fb-11e8-a892-000d3a221c5b","customer_reference":"Site User","code":"site_user","parent_id":"76f7e578-80fb-11e8-a892-000d3a221c5b","is_hierarchical":true}],"alias":"string","toggle_easy_office_mode":true,"toggle_manual_office_mode":true,"remote_access":false,"blocked":false,"tag_owned_by_this_site":false,"subscription_state":"subscribed","override_privacy_mode":true,"use_pin":true}
+2024-10-11 15:57:30: Usuário criado com sucesso! ID do usuário: 998344ec-66a7-434f-8d8f-7974efd36301
+2024-10-11 15:57:30: Resposta da API ao criar grupo de acesso: 
+2024-10-11 15:57:30: {"id":"e4bfc81c-1e52-49ef-95c5-fcc5d5756e5d","customer_reference":"pmsReservation: 147"}
+2024-10-11 15:57:30: Horário criado com sucesso! Resposta: {"id":"9b30be79-3fc1-4d7f-9aec-9ac60d971991","monday":true,"tuesday":true,"wednesday":true,"thursday":true,"friday":true,"saturday":true,"sunday":true,"start_time":"00:00:00","end_time":"23:59:59","start_date":"1900-01-01T00:00:00Z","end_date":"2024-09-30T00:00:00Z"}
+2024-10-11 15:57:30: Grupo de acesso criado com sucesso! ID do grupo: e4bfc81c-1e52-49ef-95c5-fcc5d5756e5d
+2024-10-11 15:57:30: Grupo de acesso criado com sucesso! ID do grupo: e4bfc81c-1e52-49ef-95c5-fcc5d5756e5d
+2024-10-11 15:57:31: Resposta da API ao adicionar usuário ao grupo de acesso: 
+2024-10-11 15:57:31: 
+2024-10-11 15:57:31: Usuário 368eb588-aecd-482d-aaf8-73d641c0ba9c adicionado ao grupo de acesso e4bfc81c-1e52-49ef-95c5-fcc5d5756e5d com sucesso.
+2024-10-11 15:57:31: Resposta da API ao obter fechaduras: 
+2024-10-11 15:57:31: {"items":[{"offline_access_keys_limit":39,"offline_access_keys_count":1,"mac":"2D.EA.7C","floor":null,"locked_state":"locked","lock_type":"escutcheon_pin","online":true,"iq_link_state":"attached","tag_registration_state":"not_started","battery_level":"fresh","left_open_alarm":false,"intrusion_alarm":false,"easy_office_mode_schedule":null,"iq":{"mac_address":"2E.21.B7","is_online":true,"revision":"2.0","otp_enabled":true,"id":"936a1c75-3398-11ef-9eb0-6045bd92d38f","customer_reference":"IQ HitsNorte"},"repeater":null,"privacy_mode":false,"communication_type":"rf_net","id":"688708b2-aa10-4dce-81d1-3af3705277fa","customer_reference":"Quarto 333"}],"next_page_link":null,"count":null}
+2024-10-11 15:57:31: Resposta da API ao associar fechadura ao grupo de acesso: 
+2024-10-11 15:57:31: {"id":"688708b2-aa10-4dce-81d1-3af3705277fa","customer_reference":"Quarto 333"}
+2024-10-11 15:57:31: Fechadura 688708b2-aa10-4dce-81d1-3af3705277fa associada ao grupo de acesso e4bfc81c-1e52-49ef-95c5-fcc5d5756e5d com sucesso.
+2024-10-11 15:57:34: Resposta da API ao criar usuário: 
+2024-10-11 15:57:34: {"id":"084730d2-d6bb-4269-8243-f02f7f88fd62","user":{"email":"pistachiosalgado3@gmail.com","image_url":null,"tag_number":null,"is_managed_by_current_site":true,"has_profile":false,"id":"6e088be0-b0da-4121-a9c3-5d80e0bda572","first_name":"Beatriz","last_name":"Guest"},"roles":[{"id":"8f6081a3-80fb-11e8-a892-000d3a221c5b","customer_reference":"Site User","code":"site_user","parent_id":"76f7e578-80fb-11e8-a892-000d3a221c5b","is_hierarchical":true}],"alias":"string","toggle_easy_office_mode":true,"toggle_manual_office_mode":true,"remote_access":false,"blocked":false,"tag_owned_by_this_site":false,"subscription_state":"subscribed","override_privacy_mode":true,"use_pin":true}
+2024-10-11 15:57:34: Usuário criado com sucesso! ID do usuário: 084730d2-d6bb-4269-8243-f02f7f88fd62
+2024-10-11 15:57:34: Resposta da API ao criar grupo de acesso: 
+2024-10-11 15:57:34: {"id":"37e52e09-3ac4-4cf7-aa10-4a520a6c875b","customer_reference":"pmsReservation: 156"}
+2024-10-11 15:57:34: Horário criado com sucesso! Resposta: {"id":"b8c76117-4605-47d6-bd79-0c44d21667f9","monday":true,"tuesday":true,"wednesday":true,"thursday":true,"friday":true,"saturday":true,"sunday":true,"start_time":"00:00:00","end_time":"23:59:59","start_date":"1900-01-01T00:00:00Z","end_date":"2024-10-25T15:16:20.963Z"}
+2024-10-11 15:57:34: Grupo de acesso criado com sucesso! ID do grupo: 37e52e09-3ac4-4cf7-aa10-4a520a6c875b
+2024-10-11 15:57:34: Grupo de acesso criado com sucesso! ID do grupo: 37e52e09-3ac4-4cf7-aa10-4a520a6c875b
+2024-10-11 15:57:35: Resposta da API ao adicionar usuário ao grupo de acesso: 
+2024-10-11 15:57:35: 
+2024-10-11 15:57:35: Usuário 6e088be0-b0da-4121-a9c3-5d80e0bda572 adicionado ao grupo de acesso 37e52e09-3ac4-4cf7-aa10-4a520a6c875b com sucesso.
+2024-10-11 15:57:36: Resposta da API ao obter fechaduras: 
+2024-10-11 15:57:36: {"items":[{"offline_access_keys_limit":39,"offline_access_keys_count":1,"mac":"2D.EA.7C","floor":null,"locked_state":"locked","lock_type":"escutcheon_pin","online":true,"iq_link_state":"attached","tag_registration_state":"not_started","battery_level":"fresh","left_open_alarm":false,"intrusion_alarm":false,"easy_office_mode_schedule":null,"iq":{"mac_address":"2E.21.B7","is_online":true,"revision":"2.0","otp_enabled":true,"id":"936a1c75-3398-11ef-9eb0-6045bd92d38f","customer_reference":"IQ HitsNorte"},"repeater":null,"privacy_mode":false,"communication_type":"rf_net","id":"688708b2-aa10-4dce-81d1-3af3705277fa","customer_reference":"Quarto 333"}],"next_page_link":null,"count":null}
+2024-10-11 15:57:36: Resposta da API ao associar fechadura ao grupo de acesso: 
+2024-10-11 15:57:36: {"id":"688708b2-aa10-4dce-81d1-3af3705277fa","customer_reference":"Quarto 333"}
+2024-10-11 15:57:36: Fechadura 688708b2-aa10-4dce-81d1-3af3705277fa associada ao grupo de acesso 37e52e09-3ac4-4cf7-aa10-4a520a6c875b com sucesso.
+2024-10-11 15:57:39: Email enviado com sucesso para: pistachiosalgado3@gmail.com
+2024-10-11 15:57:40: Nenhum access group encontrado para recordID 37 com o ReservationID 1
+2024-10-11 15:57:40: Nenhum access group encontrado para recordID 38 com o ReservationID 1
+2024-10-11 15:57:41: Nenhum access group encontrado para recordID 39 com o ReservationID 1
+2024-10-11 15:57:41: Nenhum access group encontrado para recordID 40 com o ReservationID 1
+2024-10-11 15:57:41: Nenhum access group encontrado para recordID 41 com o ReservationID 1993
+2024-10-11 15:57:42: Nenhum access group encontrado para recordID 42 com o ReservationID 13
+2024-10-11 15:57:42: Nenhum access group encontrado para recordID 43 com o ReservationID 1234
+2024-10-11 15:57:42: Nenhum access group encontrado para recordID 45 com o ReservationID 123
+2024-10-11 15:57:42: Nenhum access group encontrado para recordID 46 com o ReservationID 1234
+2024-10-11 15:57:42: Nenhum access group encontrado para recordID 47 com o ReservationID 12
+2024-10-11 15:57:42: A data de validade 25/10/2024 15:16:20 ainda não expirou para recordID 51. Não verificando os access groups.
+2024-10-11 15:57:59: Starting work execution.
+2024-10-11 15:57:59: Access token refreshed successfully.
+2024-10-11 15:57:59: timeToAlive atualizado com sucesso.
+2024-10-11 15:57:59: Work execution completed successfully.
+2024-10-11 15:57:59: Resposta da API ao criar usuário: 
+2024-10-11 15:57:59: {"ErrorCode":"1101","Message":"Validation failed: This email address is already in use."}
+2024-10-11 15:57:59: Erro ao criar usuário: {"ErrorCode":"1101","Message":"Validation failed: This email address is already in use."}
+2024-10-11 15:57:59: Nenhum access group encontrado para recordID 37 com o ReservationID 1
+2024-10-11 15:58:00: Nenhum access group encontrado para recordID 38 com o ReservationID 1
+2024-10-11 15:58:00: Nenhum access group encontrado para recordID 39 com o ReservationID 1
+2024-10-11 15:58:00: Nenhum access group encontrado para recordID 40 com o ReservationID 1
+2024-10-11 15:58:00: Nenhum access group encontrado para recordID 41 com o ReservationID 1993
+2024-10-11 15:58:01: Nenhum access group encontrado para recordID 42 com o ReservationID 13
+2024-10-11 15:58:01: Nenhum access group encontrado para recordID 43 com o ReservationID 1234
+2024-10-11 15:58:01: Nenhum access group encontrado para recordID 45 com o ReservationID 123
+2024-10-11 15:58:02: Nenhum access group encontrado para recordID 46 com o ReservationID 1234
+2024-10-11 15:58:02: Nenhum access group encontrado para recordID 47 com o ReservationID 12
+2024-10-11 15:58:02: A data de validade 25/10/2024 15:16:20 ainda não expirou para recordID 51. Não verificando os access groups.
+2024-10-11 15:58:29: Starting work execution.
+2024-10-11 15:58:29: Access token refreshed successfully.
+2024-10-11 15:58:29: timeToAlive atualizado com sucesso.
+2024-10-11 15:58:29: Work execution completed successfully.
+2024-10-11 15:58:29: Resposta da API ao criar usuário: 
+2024-10-11 15:58:29: {"ErrorCode":"1101","Message":"Validation failed: This email address is already in use."}
+2024-10-11 15:58:29: Erro ao criar usuário: {"ErrorCode":"1101","Message":"Validation failed: This email address is already in use."}
+2024-10-11 15:58:31: Email enviado com sucesso para: pistachiosalgado3@gmail.com
+2024-10-11 15:58:31: Nenhum access group encontrado para recordID 37 com o ReservationID 1
+2024-10-11 15:58:31: Nenhum access group encontrado para recordID 38 com o ReservationID 1
+2024-10-11 15:58:31: Nenhum access group encontrado para recordID 39 com o ReservationID 1
+2024-10-11 15:58:32: Nenhum access group encontrado para recordID 40 com o ReservationID 1
+2024-10-11 15:58:32: Nenhum access group encontrado para recordID 41 com o ReservationID 1993
+2024-10-11 15:58:32: Nenhum access group encontrado para recordID 42 com o ReservationID 13
+2024-10-11 15:58:32: Nenhum access group encontrado para recordID 43 com o ReservationID 1234
+2024-10-11 15:58:32: Nenhum access group encontrado para recordID 45 com o ReservationID 123
+2024-10-11 15:58:33: Nenhum access group encontrado para recordID 46 com o ReservationID 1234
+2024-10-11 15:58:33: Nenhum access group encontrado para recordID 47 com o ReservationID 12
+2024-10-11 15:58:33: A data de validade 25/10/2024 15:16:20 ainda não expirou para recordID 51. Não verificando os access groups.
+2024-10-11 15:58:59: Starting work execution.
+2024-10-11 15:58:59: Access token refreshed successfully.
+2024-10-11 15:58:59: timeToAlive atualizado com sucesso.
+2024-10-11 15:58:59: Work execution completed successfully.
+2024-10-11 15:58:59: Resposta da API ao criar usuário: 
+2024-10-11 15:58:59: {"ErrorCode":"1101","Message":"Validation failed: This email address is already in use."}
+2024-10-11 15:58:59: Erro ao criar usuário: {"ErrorCode":"1101","Message":"Validation failed: This email address is already in use."}
+2024-10-11 15:59:00: Nenhum access group encontrado para recordID 37 com o ReservationID 1
+2024-10-11 15:59:00: Nenhum access group encontrado para recordID 38 com o ReservationID 1
+2024-10-11 15:59:00: Nenhum access group encontrado para recordID 39 com o ReservationID 1
+2024-10-11 15:59:00: Nenhum access group encontrado para recordID 40 com o ReservationID 1
+2024-10-11 15:59:01: Nenhum access group encontrado para recordID 41 com o ReservationID 1993
+2024-10-11 15:59:01: Nenhum access group encontrado para recordID 42 com o ReservationID 13
+2024-10-11 15:59:01: Nenhum access group encontrado para recordID 43 com o ReservationID 1234
+2024-10-11 15:59:01: Nenhum access group encontrado para recordID 45 com o ReservationID 123
+2024-10-11 15:59:01: Nenhum access group encontrado para recordID 46 com o ReservationID 1234
+2024-10-11 15:59:02: Nenhum access group encontrado para recordID 47 com o ReservationID 12
+2024-10-11 15:59:02: A data de validade 25/10/2024 15:16:20 ainda não expirou para recordID 51. Não verificando os access groups.
+2024-10-11 15:59:29: Starting work execution.
+2024-10-11 15:59:29: Access token refreshed successfully.
+2024-10-11 15:59:29: timeToAlive atualizado com sucesso.
+2024-10-11 15:59:29: Work execution completed successfully.
+2024-10-11 15:59:29: Resposta da API ao criar usuário: 
+2024-10-11 15:59:29: {"ErrorCode":"1101","Message":"Validation failed: This email address is already in use."}
+2024-10-11 15:59:29: Erro ao criar usuário: {"ErrorCode":"1101","Message":"Validation failed: This email address is already in use."}
+2024-10-11 15:59:29: Nenhum access group encontrado para recordID 37 com o ReservationID 1
+2024-10-11 15:59:30: Nenhum access group encontrado para recordID 38 com o ReservationID 1
+2024-10-11 15:59:30: Nenhum access group encontrado para recordID 39 com o ReservationID 1
+2024-10-11 15:59:30: Nenhum access group encontrado para recordID 40 com o ReservationID 1
+2024-10-11 15:59:30: Nenhum access group encontrado para recordID 41 com o ReservationID 1993
+2024-10-11 15:59:30: Nenhum access group encontrado para recordID 42 com o ReservationID 13
+2024-10-11 15:59:31: Nenhum access group encontrado para recordID 43 com o ReservationID 1234
+2024-10-11 15:59:31: Nenhum access group encontrado para recordID 45 com o ReservationID 123
+2024-10-11 15:59:31: Nenhum access group encontrado para recordID 46 com o ReservationID 1234
+2024-10-11 15:59:32: Nenhum access group encontrado para recordID 47 com o ReservationID 12
+2024-10-11 15:59:32: A data de validade 25/10/2024 15:16:20 ainda não expirou para recordID 51. Não verificando os access groups.
+2024-10-11 15:59:59: Starting work execution.
+2024-10-11 15:59:59: Access token refreshed successfully.
+2024-10-11 15:59:59: timeToAlive atualizado com sucesso.
+2024-10-11 15:59:59: Work execution completed successfully.
+2024-10-11 15:59:59: Resposta da API ao criar usuário: 
+2024-10-11 15:59:59: {"ErrorCode":"1101","Message":"Validation failed: This email address is already in use."}
+2024-10-11 15:59:59: Erro ao criar usuário: {"ErrorCode":"1101","Message":"Validation failed: This email address is already in use."}
+2024-10-11 16:00:00: Nenhum access group encontrado para recordID 37 com o ReservationID 1
+2024-10-11 16:00:00: Nenhum access group encontrado para recordID 38 com o ReservationID 1
+2024-10-11 16:00:01: Nenhum access group encontrado para recordID 39 com o ReservationID 1
+2024-10-11 16:00:01: Nenhum access group encontrado para recordID 40 com o ReservationID 1
+2024-10-11 16:00:01: Nenhum access group encontrado para recordID 41 com o ReservationID 1993
+2024-10-11 16:00:01: Nenhum access group encontrado para recordID 42 com o ReservationID 13
+2024-10-11 16:00:02: Nenhum access group encontrado para recordID 43 com o ReservationID 1234
+2024-10-11 16:00:02: Nenhum access group encontrado para recordID 45 com o ReservationID 123
+2024-10-11 16:00:02: Nenhum access group encontrado para recordID 46 com o ReservationID 1234
+2024-10-11 16:00:02: Nenhum access group encontrado para recordID 47 com o ReservationID 12
+2024-10-11 16:00:02: A data de validade 25/10/2024 15:16:20 ainda não expirou para recordID 51. Não verificando os access groups.
+2024-10-11 16:00:29: Starting work execution.
+2024-10-11 16:00:29: Access token refreshed successfully.
+2024-10-11 16:00:29: timeToAlive atualizado com sucesso.
+2024-10-11 16:00:29: Work execution completed successfully.
+2024-10-11 16:00:29: Resposta da API ao criar usuário: 
+2024-10-11 16:00:29: {"ErrorCode":"1101","Message":"Validation failed: This email address is already in use."}
+2024-10-11 16:00:29: Erro ao criar usuário: {"ErrorCode":"1101","Message":"Validation failed: This email address is already in use."}
+2024-10-11 16:00:30: Nenhum access group encontrado para recordID 37 com o ReservationID 1
+2024-10-11 16:00:30: Nenhum access group encontrado para recordID 38 com o ReservationID 1
+2024-10-11 16:00:30: Nenhum access group encontrado para recordID 39 com o ReservationID 1
+2024-10-11 16:00:30: Nenhum access group encontrado para recordID 40 com o ReservationID 1
+2024-10-11 16:00:31: Nenhum access group encontrado para recordID 41 com o ReservationID 1993
+2024-10-11 16:00:31: Nenhum access group encontrado para recordID 42 com o ReservationID 13
+2024-10-11 16:00:31: Nenhum access group encontrado para recordID 43 com o ReservationID 1234
+2024-10-11 16:00:31: Nenhum access group encontrado para recordID 45 com o ReservationID 123
+2024-10-11 16:00:31: Nenhum access group encontrado para recordID 46 com o ReservationID 1234
+2024-10-11 16:00:32: Nenhum access group encontrado para recordID 47 com o ReservationID 12
+2024-10-11 16:00:32: A data de validade 25/10/2024 15:16:20 ainda não expirou para recordID 51. Não verificando os access groups.
