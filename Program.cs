@@ -168,7 +168,6 @@ private void ExecuteSqlScript(string scriptPath, string connectionString)
     }
 }
 
-//atualiza o timeToAlive de 30 em 30 seg para saber se o programa está a funcionar ou não
 private async Task UpdateTimeToAlive()
 {
     try
@@ -177,10 +176,11 @@ private async Task UpdateTimeToAlive()
         {
             await connection.OpenAsync();
 
-            string query = "UPDATE [proteluser].[xsetup] SET xvalue = @currentTime WHERE xsection = 'SysConector' AND xkey = 'timeToAlive'";
+            string query = "UPDATE [dbo].[xsetup] SET xvalue = @currentTime WHERE xsection = 'SysConector' AND xkey = 'timeToAlive'";
             using (SqlCommand command = new SqlCommand(query, connection))
             {
-                command.Parameters.AddWithValue("@currentTime", DateTime.UtcNow.ToString("o")); // Formato ISO 8601
+                // Ajuste para gravar no formato yyyy-MM-dd HH:mm:ss.fff (com milissegundos)
+                command.Parameters.AddWithValue("@currentTime", DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss.fff"));
                 await command.ExecuteNonQueryAsync();
             }
         }
@@ -194,7 +194,8 @@ private async Task UpdateTimeToAlive()
     }
 }
 
-private static async Task<(string tokenUrl, string clientId, string apiUrl, string supportEmail, string noReplyEmail, string noReplyPassword, int sendingPort, string sendingServer)> GetSysConectorSettingsFromDatabase(string connectionString)
+
+private static async Task<(string tokenUrl, string clientId, string apiUrl, string supportEmail, string noReplyEmail, string noReplyPassword, int sendingPort, string sendingServer, string hotelName, string hotelPhone, string hotelEmail)> GetSysConectorSettingsFromDatabase(string connectionString)
 {
     string tokenUrl = null;
     string clientId = null;
@@ -204,6 +205,9 @@ private static async Task<(string tokenUrl, string clientId, string apiUrl, stri
     string noReplyPassword = null;
     int sendingPort = 0;
     string sendingServer = null;
+    string hotelName = null;
+    string hotelPhone = null;
+    string hotelEmail = null;
 
     try
     {
@@ -214,9 +218,9 @@ private static async Task<(string tokenUrl, string clientId, string apiUrl, stri
             // Consulta para buscar os valores da tabela xsetup
             string query = @"
                 SELECT xkey, xvalue 
-                FROM [proteluser].[xsetup] 
+                FROM [dbo].[xsetup] 
                 WHERE xsection = 'SysConector' 
-                AND xkey IN ('tokenURL', 'clientId', 'apiUrl', 'supportEmail', 'noReplyEmail', 'noReplyPassword', 'sendingPort', 'sendingServer')";
+                AND xkey IN ('tokenURL', 'clientId', 'apiUrl', 'supportEmail', 'noReplyEmail', 'noReplyPassword', 'sendingPort', 'sendingServer', 'hotelName', 'hotelPhone', 'hotelEmail')";
 
             using (SqlCommand command = new SqlCommand(query, connection))
             {
@@ -255,6 +259,15 @@ private static async Task<(string tokenUrl, string clientId, string apiUrl, stri
                             case "sendingServer":
                                 sendingServer = value;
                                 break;
+                            case "hotelName":
+                                hotelName = value;
+                                break;
+                            case "hotelPhone":
+                                hotelPhone = value;
+                                break;
+                            case "hotelEmail":
+                                hotelEmail = value;
+                                break;
                         }
                     }
                 }
@@ -267,7 +280,7 @@ private static async Task<(string tokenUrl, string clientId, string apiUrl, stri
         // Aqui você pode decidir enviar um email ou logar o erro
     }
 
-    return (tokenUrl, clientId, apiUrl, supportEmail, noReplyEmail, noReplyPassword, sendingPort, sendingServer);
+    return (tokenUrl, clientId, apiUrl, supportEmail, noReplyEmail, noReplyPassword, sendingPort, sendingServer, hotelName, hotelPhone, hotelEmail);
 }
 
     private async Task<(string, string)> RetrieveAccessTokenAndRefreshToken()
@@ -334,7 +347,7 @@ private static async Task<(string tokenUrl, string clientId, string apiUrl, stri
         string connectionString = ReadConnectionStringFromFile("connectionString.txt");
 
         // Busca os valores apiUrl, tokenUrl e clientId na base de dados
-        var (tokenUrl, clientId, apiUrlBase, supportEmail, noReplyEmail, noReplyPassword, sendingPort, sendingServer) = await GetSysConectorSettingsFromDatabase(connectionString);
+        var (tokenUrl, clientId, apiUrlBase, supportEmail, noReplyEmail, noReplyPassword, sendingPort, sendingServer, hotelName, hotelPhone, hotelEmail) = await GetSysConectorSettingsFromDatabase(connectionString);
 
         if (string.IsNullOrEmpty(tokenUrl) || string.IsNullOrEmpty(clientId))
         {
@@ -405,7 +418,7 @@ private static async Task<(string tokenUrl, string clientId, string apiUrl, stri
         }
     }
 
-private static async Task SendEmailWithPin(string email, string pinCode, string guestName)
+private static async Task SendEmailWithPin(string email, string pinCode, string guestName, string protelReservationID, DateTime protelValidFrom, DateTime protelValidUntil)
 {
     try
     {
@@ -413,7 +426,7 @@ private static async Task SendEmailWithPin(string email, string pinCode, string 
         string connectionString = ReadConnectionStringFromFile("connectionString.txt");
 
         // Busca os emails e senhas na base de dados
-        var (tokenUrl, clientId, apiUrlBase, supportEmail, noReplyEmail, noReplyPassword, sendingPort, sendingServer) = await GetSysConectorSettingsFromDatabase(connectionString);
+        var (tokenUrl, clientId, apiUrlBase, supportEmail, noReplyEmail, noReplyPassword, sendingPort, sendingServer, hotelName, hotelPhone, hotelEmail) = await GetSysConectorSettingsFromDatabase(connectionString);
 
         // Verifica se o email ou senha estão vazios
         if (string.IsNullOrEmpty(noReplyEmail) || string.IsNullOrEmpty(noReplyPassword))
@@ -429,18 +442,27 @@ private static async Task SendEmailWithPin(string email, string pinCode, string 
             EnableSsl = true,
         };
 
-        string subject = "Seu código PIN de acesso";
-        string body = $"Olá {guestName},\n\n" +
-                      $"Aqui está o seu código PIN de acesso: {pinCode}\n\n" +
-                      "Este PIN pode ser usado para acessar as instalações até a data de expiração.\n\n" +
-                      "Atenciosamente,\nEquipe de Suporte";
+        string subject = "Confirmação de Reserva e Detalhes do Código PIN de Acesso";
+      string body = $"Hello {guestName},<br><br>" +
+                $"Your reservation has been successfully made. Here is the PIN for the facilities: <strong>{pinCode}</strong><br><br>" + 
+                $"Here are the details of your reservation:<br>" +
+                $"- Reservation Number: {protelReservationID}<br>" +
+                $"- Check-in Date: {protelValidFrom}<br>" +
+                $"- Check-out Date: {protelValidUntil}<br>" +
+                $"Your PIN code can be used to access the facilities until the check-out date and time.<br><br>" +
+                $"If you need more information or assistance, please do not hesitate to contact us.<br><br>" +
+                $"Best regards,<br>" +
+                $"Support Team<br><br>" +
+                $"{hotelName}<br>" +
+                $"Email: {hotelEmail}<br>" +
+                $"Phone: {hotelPhone}";
 
         var mailMessage = new MailMessage
         {
             From = new MailAddress(noReplyEmail), // Usa o noReplyEmail da base de dados
             Subject = subject,
             Body = body,
-            IsBodyHtml = false,
+            IsBodyHtml = true,
         };
         mailMessage.To.Add(email); // Email do hóspede
 
@@ -465,7 +487,7 @@ public static async Task SendErrorEmail(string subject, string message)
         string connectionString = ReadConnectionStringFromFile("connectionString.txt");
 
         // Busca os emails e senhas na base de dados
-        var (tokenUrl, clientId, apiUrlBase, supportEmail, noReplyEmail, noReplyPassword, sendingPort, sendingServer) = await GetSysConectorSettingsFromDatabase(connectionString);
+        var (tokenUrl, clientId, apiUrlBase, supportEmail, noReplyEmail, noReplyPassword, sendingPort, sendingServer, hotelName, hotelPhone, hotelEmail) = await GetSysConectorSettingsFromDatabase(connectionString);
 
         // Se o email não for encontrado, usa um email padrão ou lança uma exceção
         if (string.IsNullOrEmpty(supportEmail))
@@ -508,7 +530,7 @@ public static async Task SendErrorEmail(string subject, string message)
     string connectionString = ReadConnectionStringFromFile("connectionString.txt");
 
     // Busca os valores tokenUrl, clientId e apiUrl na base de dados
-    var (tokenUrl, clientId, apiUrlBase, supportEmail, noReplyEmail, noReplyPassword, sendingPort, sendingServer) = await GetSysConectorSettingsFromDatabase(connectionString);
+    var (tokenUrl, clientId, apiUrlBase, supportEmail, noReplyEmail, noReplyPassword, sendingPort, sendingServer, hotelName, hotelPhone, hotelEmail) = await GetSysConectorSettingsFromDatabase(connectionString);
 
     if (string.IsNullOrEmpty(apiUrlBase))
     {
@@ -590,7 +612,7 @@ public static async Task SendErrorEmail(string subject, string message)
                         if (!string.IsNullOrEmpty(newUserId))
                         {
                             // Passar o expiryDate recuperado da base de dados
-                            var (pinCode, responseBody, requestUrl, responseStatus, requestType, requestBody) = await AssignPin(accessToken, selectedSiteId, newUserId, protelValidUntil, protelGuestEmail, protelGuestName);
+                            var (pinCode, responseBody, requestUrl, responseStatus, requestType, requestBody) = await AssignPin(accessToken, selectedSiteId, newUserId, protelValidUntil, protelGuestEmail, protelGuestName, protelReservationID, protelValidFrom);
 
                             if (!string.IsNullOrEmpty(pinCode))
                             {
@@ -623,7 +645,7 @@ public static async Task SendErrorEmail(string subject, string message)
                 }
 
                 // Query para buscar os registros onde 'sendPinAgain' é 'S'
-        var query = "SELECT recordID, protelGuestName, protelGuestEmail, code FROM requestRecordsCode WHERE sendPinAgain = 'S'";
+        var query = "SELECT recordID, protelGuestName, protelGuestEmail, protelReservationID, code FROM requestRecordsCode WHERE sendPinAgain = 'S'";
 
         using (var command = new SqlCommand(query, connection))
         {
@@ -634,14 +656,23 @@ public static async Task SendErrorEmail(string subject, string message)
                     var recordId = reader["recordID"].ToString();
                     var guestName = reader["protelGuestName"].ToString();
                     var guestEmail = reader["protelGuestEmail"].ToString();
+                    var protelReservationID = reader["protelReservationID"].ToString();
                     var pinCode = reader["code"].ToString();
+
+var protelValidFrom = controlReader["protelValidFrom"] != DBNull.Value
+                        ? Convert.ToDateTime(controlReader["protelValidFrom"])
+                        : DateTime.MinValue;
+
+                    var protelValidUntil = controlReader["protelValidUntil"] != DBNull.Value
+                        ? Convert.ToDateTime(controlReader["protelValidUntil"])
+                        : DateTime.MinValue;
 
                     Console.WriteLine($"Enviando o PIN novamente. recordID: {recordId}, Nome: {guestName}, Email: {guestEmail}");
 
                     try
                     {
                         // Enviar o e-mail com o código PIN do campo 'code'
-                        await SendEmailWithPin(guestEmail, pinCode, guestName);
+                        await SendEmailWithPin(guestEmail, pinCode, guestName, protelReservationID, protelValidFrom, protelValidUntil);
 
                         // Atualizar o campo 'sendPinAgain' para 'N' após o envio do PIN
                         await UpdateSendPinAgainStatus(connection, recordId);
@@ -726,7 +757,7 @@ private static async Task GetAccessGroups(string accessToken, string recordId, s
     string connectionString = ReadConnectionStringFromFile("connectionString.txt");
 
     // Busca os valores apiUrl, tokenUrl e clientId na base de dados
-    var (tokenUrl, clientId, apiUrlBase, supportEmail, noReplyEmail, noReplyPassword, sendingPort, sendingServer) = await GetSysConectorSettingsFromDatabase(connectionString);
+    var (tokenUrl, clientId, apiUrlBase, supportEmail, noReplyEmail, noReplyPassword, sendingPort, sendingServer, hotelName, hotelPhone, hotelEmail) = await GetSysConectorSettingsFromDatabase(connectionString);
 
     if (string.IsNullOrEmpty(apiUrlBase))
     {
@@ -855,7 +886,7 @@ private static async Task DeleteUserByEmail(string accessToken, string email)
     string connectionString = ReadConnectionStringFromFile("connectionString.txt");
 
     // Busca os valores apiUrl, tokenUrl e clientId na base de dados
-    var (tokenUrl, clientId, apiUrlBase, supportEmail, noReplyEmail, noReplyPassword, sendingPort, sendingServer) = await GetSysConectorSettingsFromDatabase(connectionString);
+    var (tokenUrl, clientId, apiUrlBase, supportEmail, noReplyEmail, noReplyPassword, sendingPort, sendingServer, hotelName, hotelPhone, hotelEmail) = await GetSysConectorSettingsFromDatabase(connectionString);
 
     if (string.IsNullOrEmpty(apiUrlBase))
     {
@@ -952,7 +983,7 @@ private static async Task DeleteUserByEmail(string accessToken, string email)
     string connectionString = ReadConnectionStringFromFile("connectionString.txt");
 
     // Busca os valores apiUrl, tokenUrl e clientId na base de dados
-    var (tokenUrl, clientId, apiUrlBase, supportEmail, noReplyEmail, noReplyPassword, sendingPort, sendingServer) = await GetSysConectorSettingsFromDatabase(connectionString);
+    var (tokenUrl, clientId, apiUrlBase, supportEmail, noReplyEmail, noReplyPassword, sendingPort, sendingServer, hotelName, hotelPhone, hotelEmail) = await GetSysConectorSettingsFromDatabase(connectionString);
 
     if (string.IsNullOrEmpty(apiUrlBase))
     {
@@ -1093,7 +1124,7 @@ private static async Task<string?> CreateAccessGroup(string accessToken, string 
     string connectionString = ReadConnectionStringFromFile("connectionString.txt");
 
     // Busca os valores apiUrl, tokenUrl e clientId na base de dados
-    var (tokenUrl, clientId, apiUrlBase, supportEmail, noReplyEmail, noReplyPassword, sendingPort, sendingServer) = await GetSysConectorSettingsFromDatabase(connectionString);
+    var (tokenUrl, clientId, apiUrlBase, supportEmail, noReplyEmail, noReplyPassword, sendingPort, sendingServer, hotelName, hotelPhone, hotelEmail) = await GetSysConectorSettingsFromDatabase(connectionString);
 
     if (string.IsNullOrEmpty(apiUrlBase))
     {
@@ -1175,7 +1206,7 @@ private static async Task CreateTimeSchedule(string accessToken, string selected
     string connectionString = ReadConnectionStringFromFile("connectionString.txt");
 
     // Busca os valores apiUrl, tokenUrl e clientId na base de dados
-    var (tokenUrl, clientId, apiUrlBase, supportEmail, noReplyEmail, noReplyPassword, sendingPort, sendingServer) = await GetSysConectorSettingsFromDatabase(connectionString);
+    var (tokenUrl, clientId, apiUrlBase, supportEmail, noReplyEmail, noReplyPassword, sendingPort, sendingServer, hotelName, hotelPhone, hotelEmail) = await GetSysConectorSettingsFromDatabase(connectionString);
 
     if (string.IsNullOrEmpty(apiUrlBase))
     {
@@ -1230,7 +1261,7 @@ private static async Task<bool> AddUserToAccessGroup(string accessToken, string 
     string connectionString = ReadConnectionStringFromFile("connectionString.txt");
 
     // Busca os valores apiUrl, tokenUrl e clientId na base de dados
-    var (tokenUrl, clientId, apiUrlBase, supportEmail, noReplyEmail, noReplyPassword, sendingPort, sendingServer) = await GetSysConectorSettingsFromDatabase(connectionString);
+    var (tokenUrl, clientId, apiUrlBase, supportEmail, noReplyEmail, noReplyPassword, sendingPort, sendingServer, hotelName, hotelPhone, hotelEmail) = await GetSysConectorSettingsFromDatabase(connectionString);
 
     if (string.IsNullOrEmpty(apiUrlBase))
     {
@@ -1267,7 +1298,7 @@ private static async Task<string?> GetLockId(string accessToken, string siteId, 
     string connectionString = ReadConnectionStringFromFile("connectionString.txt");
 
     // Busca os valores apiUrl, tokenUrl e clientId na base de dados
-    var (tokenUrl, clientId, apiUrlBase, supportEmail, noReplyEmail, noReplyPassword, sendingPort, sendingServer) = await GetSysConectorSettingsFromDatabase(connectionString);
+    var (tokenUrl, clientId, apiUrlBase, supportEmail, noReplyEmail, noReplyPassword, sendingPort, sendingServer, hotelName, hotelPhone, hotelEmail) = await GetSysConectorSettingsFromDatabase(connectionString);
 
     if (string.IsNullOrEmpty(apiUrlBase))
     {
@@ -1331,7 +1362,7 @@ private static async Task<bool> AssociateLockToAccessGroup(string accessToken, s
     string connectionString = ReadConnectionStringFromFile("connectionString.txt");
 
     // Busca os valores apiUrl, tokenUrl e clientId na base de dados
-    var (tokenUrl, clientId, apiUrlBase, supportEmail, noReplyEmail, noReplyPassword, sendingPort, sendingServer) = await GetSysConectorSettingsFromDatabase(connectionString);
+    var (tokenUrl, clientId, apiUrlBase, supportEmail, noReplyEmail, noReplyPassword, sendingPort, sendingServer, hotelName, hotelPhone, hotelEmail) = await GetSysConectorSettingsFromDatabase(connectionString);
 
     if (string.IsNullOrEmpty(apiUrlBase))
     {
@@ -1362,13 +1393,13 @@ private static async Task<bool> AssociateLockToAccessGroup(string accessToken, s
     }
 }
 
- private static async Task<(string? pinCode, string responseBody, string requestUrl, int responseStatus, string requestType, string requestBody)> AssignPin(string accessToken, string siteId, string userId, DateTime expiryDate, string guestEmail, string guestName)
+ private static async Task<(string? pinCode, string responseBody, string requestUrl, int responseStatus, string requestType, string requestBody)> AssignPin(string accessToken, string siteId, string userId, DateTime expiryDate, string guestEmail, string guestName, string protelReservationID, DateTime protelValidFrom)
 {
     // Obtém a string de conexão da base de dados
     string connectionString = ReadConnectionStringFromFile("connectionString.txt");
 
     // Busca os valores apiUrl, tokenUrl e clientId na base de dados
-    var (tokenUrl, clientId, apiUrlBase, supportEmail, noReplyEmail, noReplyPassword, sendingPort, sendingServer) = await GetSysConectorSettingsFromDatabase(connectionString);
+    var (tokenUrl, clientId, apiUrlBase, supportEmail, noReplyEmail, noReplyPassword, sendingPort, sendingServer, hotelName, hotelPhone, hotelEmail) = await GetSysConectorSettingsFromDatabase(connectionString);
 
     if (string.IsNullOrEmpty(apiUrlBase))
     {
@@ -1402,7 +1433,7 @@ private static async Task<bool> AssociateLockToAccessGroup(string accessToken, s
             {
                 var pinCode = responseBody.Trim('"') + "#"; // Remover as aspas duplas
                 Console.WriteLine($"PIN atribuído com sucesso! PIN: {pinCode}");
-                await SendEmailWithPin(guestEmail, pinCode, guestName);
+                await SendEmailWithPin(guestEmail, pinCode, guestName, protelReservationID, protelValidFrom, expiryDate);
 
                 return (pinCode, responseBody, apiUrl, (int)response.StatusCode, "PUT", body.ToString());
             }
