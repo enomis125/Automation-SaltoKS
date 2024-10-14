@@ -16,7 +16,7 @@ SET @Mpehotel = 1
 SET @timeToAlive = GETDATE() 
 SET @noReplyEmail = 'pmonteiro.micronet@gmail.com'
 SET @noReplyPassword = 'qaev zpjt rnpt nnao'
-SET @sendingServer = 'smtp.example.com'
+SET @sendingServer = 'smtp.gmail.com'
 SET @sendingPort = 587
 SET @supportEmail = 'ssantos.micronet@gmail.com'
 

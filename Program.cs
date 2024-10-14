@@ -214,7 +214,7 @@ private static async Task<(string tokenUrl, string clientId, string apiUrl, stri
                 SELECT xkey, xvalue 
                 FROM [proteluser].[xsetup] 
                 WHERE xsection = 'SysConector' 
-                AND xkey IN ('tokenURL', 'clientId', 'apiUrl', 'supportEmail', 'noReplyEmail', 'noReplyPassword')";
+                AND xkey IN ('tokenURL', 'clientId', 'apiUrl', 'supportEmail', 'noReplyEmail', 'noReplyPassword', 'sendingPort', 'sendingServer')";
 
             using (SqlCommand command = new SqlCommand(query, connection))
             {
@@ -246,6 +246,12 @@ private static async Task<(string tokenUrl, string clientId, string apiUrl, stri
                                 break;
                             case "noReplyPassword":
                                 noReplyPassword = value;
+                                break;
+                            case "sendingPort":
+                                sendingPort = value;
+                                break;
+                            case "sendingServer":
+                                sendingServer = value;
                                 break;
                         }
                     }
@@ -326,7 +332,7 @@ private static async Task<(string tokenUrl, string clientId, string apiUrl, stri
         string connectionString = ReadConnectionStringFromFile("connectionString.txt");
 
         // Busca os valores apiUrl, tokenUrl e clientId na base de dados
-        var (tokenUrl, clientId, apiUrlBase, supportEmail, noReplyEmail, noReplyPassword) = await GetSysConectorSettingsFromDatabase(connectionString);
+        var (tokenUrl, clientId, apiUrlBase, supportEmail, noReplyEmail, noReplyPassword, sendingPort, sendingServer) = await GetSysConectorSettingsFromDatabase(connectionString);
 
         if (string.IsNullOrEmpty(tokenUrl) || string.IsNullOrEmpty(clientId))
         {
@@ -341,7 +347,7 @@ private static async Task<(string tokenUrl, string clientId, string apiUrl, stri
                 { "grant_type", "refresh_token" },
                 { "refresh_token", refreshToken },
                 { "client_id", clientId },
-                { "client_secret", "" } // Fornecer o client_secret correto aqui
+                { "client_secret", "" }
             };
 
             var requestContent = new FormUrlEncodedContent(parameters);
@@ -357,7 +363,7 @@ private static async Task<(string tokenUrl, string clientId, string apiUrl, stri
 
                 await UpdateTokensInDatabase(newAccessToken, newRefreshToken, DateTime.UtcNow.AddSeconds(expiresIn));
 
-                Notas.Log("Refreshing access token."); // Adiciona log aqui
+                Notas.Log("Refreshing access token."); 
                 return (newAccessToken, newRefreshToken);
             }
             else
@@ -405,7 +411,7 @@ private static async Task SendEmailWithPin(string email, string pinCode, string 
         string connectionString = ReadConnectionStringFromFile("connectionString.txt");
 
         // Busca os emails e senhas na base de dados
-        var (tokenUrl, clientId, apiUrlBase, supportEmail, noReplyEmail, noReplyPassword) = await GetSysConectorSettingsFromDatabase(connectionString);
+        var (tokenUrl, clientId, apiUrlBase, supportEmail, noReplyEmail, noReplyPassword, sendingPort, sendingServer) = await GetSysConectorSettingsFromDatabase(connectionString);
 
         // Verifica se o email ou senha estão vazios
         if (string.IsNullOrEmpty(noReplyEmail) || string.IsNullOrEmpty(noReplyPassword))
@@ -414,9 +420,9 @@ private static async Task SendEmailWithPin(string email, string pinCode, string 
             return; // Adicionando um retorno para evitar envio de e-mail sem credenciais
         }
 
-        var smtpClient = new SmtpClient("smtp.gmail.com") // Defina o servidor SMTP
+        var smtpClient = new SmtpClient(sendingServer) // Defina o servidor SMTP
         {
-            Port = 587, // Defina a porta correta
+            Port = (sendingPort),
             Credentials = new System.Net.NetworkCredential(noReplyEmail, noReplyPassword), // Usa o noReplyEmail e noReplyPassword da base de dados
             EnableSsl = true,
         };
@@ -457,7 +463,7 @@ public static async Task SendErrorEmail(string subject, string message)
         string connectionString = ReadConnectionStringFromFile("connectionString.txt");
 
         // Busca os emails e senhas na base de dados
-        var (tokenUrl, clientId, apiUrlBase, supportEmail, noReplyEmail, noReplyPassword) = await GetSysConectorSettingsFromDatabase(connectionString);
+        var (tokenUrl, clientId, apiUrlBase, supportEmail, noReplyEmail, noReplyPassword, sendingPort, sendingServer) = await GetSysConectorSettingsFromDatabase(connectionString);
 
         // Se o email não for encontrado, usa um email padrão ou lança uma exceção
         if (string.IsNullOrEmpty(supportEmail))
@@ -467,14 +473,14 @@ public static async Task SendErrorEmail(string subject, string message)
         }
 
         MailMessage mail = new MailMessage();
-        SmtpClient smtpServer = new SmtpClient("smtp.gmail.com");
+        SmtpClient smtpServer = new SmtpClient(sendingServer);
 
         mail.From = new MailAddress(noReplyEmail); // Usa o noReplyEmail da base de dados
         mail.To.Add(supportEmail); // Usa o supportEmail da base de dados
         mail.Subject = subject;
         mail.Body = message;
 
-        smtpServer.Port = 587; 
+        smtpServer.Port = (sendingPort); 
         smtpServer.Credentials = new System.Net.NetworkCredential(noReplyEmail, noReplyPassword);
         smtpServer.EnableSsl = true;
 
@@ -500,7 +506,7 @@ public static async Task SendErrorEmail(string subject, string message)
     string connectionString = ReadConnectionStringFromFile("connectionString.txt");
 
     // Busca os valores tokenUrl, clientId e apiUrl na base de dados
-    var (tokenUrl, clientId, apiUrlBase, supportEmail, noReplyEmail, noReplyPassword) = await GetSysConectorSettingsFromDatabase(connectionString);
+    var (tokenUrl, clientId, apiUrlBase, supportEmail, noReplyEmail, noReplyPassword, sendingPort, sendingServer) = await GetSysConectorSettingsFromDatabase(connectionString);
 
     if (string.IsNullOrEmpty(apiUrlBase))
     {
@@ -718,7 +724,7 @@ private static async Task GetAccessGroups(string accessToken, string recordId, s
     string connectionString = ReadConnectionStringFromFile("connectionString.txt");
 
     // Busca os valores apiUrl, tokenUrl e clientId na base de dados
-    var (tokenUrl, clientId, apiUrlBase, supportEmail, noReplyEmail, noReplyPassword) = await GetSysConectorSettingsFromDatabase(connectionString);
+    var (tokenUrl, clientId, apiUrlBase, supportEmail, noReplyEmail, noReplyPassword, sendingPort, sendingServer) = await GetSysConectorSettingsFromDatabase(connectionString);
 
     if (string.IsNullOrEmpty(apiUrlBase))
     {
@@ -847,7 +853,7 @@ private static async Task DeleteUserByEmail(string accessToken, string email)
     string connectionString = ReadConnectionStringFromFile("connectionString.txt");
 
     // Busca os valores apiUrl, tokenUrl e clientId na base de dados
-    var (tokenUrl, clientId, apiUrlBase, supportEmail, noReplyEmail, noReplyPassword) = await GetSysConectorSettingsFromDatabase(connectionString);
+    var (tokenUrl, clientId, apiUrlBase, supportEmail, noReplyEmail, noReplyPassword, sendingPort, sendingServer) = await GetSysConectorSettingsFromDatabase(connectionString);
 
     if (string.IsNullOrEmpty(apiUrlBase))
     {
@@ -944,7 +950,7 @@ private static async Task DeleteUserByEmail(string accessToken, string email)
     string connectionString = ReadConnectionStringFromFile("connectionString.txt");
 
     // Busca os valores apiUrl, tokenUrl e clientId na base de dados
-    var (tokenUrl, clientId, apiUrlBase, supportEmail, noReplyEmail, noReplyPassword) = await GetSysConectorSettingsFromDatabase(connectionString);
+    var (tokenUrl, clientId, apiUrlBase, supportEmail, noReplyEmail, noReplyPassword, sendingPort, sendingServer) = await GetSysConectorSettingsFromDatabase(connectionString);
 
     if (string.IsNullOrEmpty(apiUrlBase))
     {
@@ -1085,7 +1091,7 @@ private static async Task<string?> CreateAccessGroup(string accessToken, string 
     string connectionString = ReadConnectionStringFromFile("connectionString.txt");
 
     // Busca os valores apiUrl, tokenUrl e clientId na base de dados
-    var (tokenUrl, clientId, apiUrlBase, supportEmail, noReplyEmail, noReplyPassword) = await GetSysConectorSettingsFromDatabase(connectionString);
+    var (tokenUrl, clientId, apiUrlBase, supportEmail, noReplyEmail, noReplyPassword, sendingPort, sendingServer) = await GetSysConectorSettingsFromDatabase(connectionString);
 
     if (string.IsNullOrEmpty(apiUrlBase))
     {
@@ -1167,7 +1173,7 @@ private static async Task CreateTimeSchedule(string accessToken, string selected
     string connectionString = ReadConnectionStringFromFile("connectionString.txt");
 
     // Busca os valores apiUrl, tokenUrl e clientId na base de dados
-    var (tokenUrl, clientId, apiUrlBase, supportEmail, noReplyEmail, noReplyPassword) = await GetSysConectorSettingsFromDatabase(connectionString);
+    var (tokenUrl, clientId, apiUrlBase, supportEmail, noReplyEmail, noReplyPassword, sendingPort, sendingServer) = await GetSysConectorSettingsFromDatabase(connectionString);
 
     if (string.IsNullOrEmpty(apiUrlBase))
     {
@@ -1222,7 +1228,7 @@ private static async Task<bool> AddUserToAccessGroup(string accessToken, string 
     string connectionString = ReadConnectionStringFromFile("connectionString.txt");
 
     // Busca os valores apiUrl, tokenUrl e clientId na base de dados
-    var (tokenUrl, clientId, apiUrlBase, supportEmail, noReplyEmail, noReplyPassword) = await GetSysConectorSettingsFromDatabase(connectionString);
+    var (tokenUrl, clientId, apiUrlBase, supportEmail, noReplyEmail, noReplyPassword, sendingPort, sendingServer) = await GetSysConectorSettingsFromDatabase(connectionString);
 
     if (string.IsNullOrEmpty(apiUrlBase))
     {
@@ -1259,7 +1265,7 @@ private static async Task<string?> GetLockId(string accessToken, string siteId, 
     string connectionString = ReadConnectionStringFromFile("connectionString.txt");
 
     // Busca os valores apiUrl, tokenUrl e clientId na base de dados
-    var (tokenUrl, clientId, apiUrlBase, supportEmail, noReplyEmail, noReplyPassword) = await GetSysConectorSettingsFromDatabase(connectionString);
+    var (tokenUrl, clientId, apiUrlBase, supportEmail, noReplyEmail, noReplyPassword, sendingPort, sendingServer) = await GetSysConectorSettingsFromDatabase(connectionString);
 
     if (string.IsNullOrEmpty(apiUrlBase))
     {
@@ -1323,7 +1329,7 @@ private static async Task<bool> AssociateLockToAccessGroup(string accessToken, s
     string connectionString = ReadConnectionStringFromFile("connectionString.txt");
 
     // Busca os valores apiUrl, tokenUrl e clientId na base de dados
-    var (tokenUrl, clientId, apiUrlBase, supportEmail, noReplyEmail, noReplyPassword) = await GetSysConectorSettingsFromDatabase(connectionString);
+    var (tokenUrl, clientId, apiUrlBase, supportEmail, noReplyEmail, noReplyPassword, sendingPort, sendingServer) = await GetSysConectorSettingsFromDatabase(connectionString);
 
     if (string.IsNullOrEmpty(apiUrlBase))
     {
@@ -1360,7 +1366,7 @@ private static async Task<bool> AssociateLockToAccessGroup(string accessToken, s
     string connectionString = ReadConnectionStringFromFile("connectionString.txt");
 
     // Busca os valores apiUrl, tokenUrl e clientId na base de dados
-    var (tokenUrl, clientId, apiUrlBase, supportEmail, noReplyEmail, noReplyPassword) = await GetSysConectorSettingsFromDatabase(connectionString);
+    var (tokenUrl, clientId, apiUrlBase, supportEmail, noReplyEmail, noReplyPassword, sendingPort, sendingServer) = await GetSysConectorSettingsFromDatabase(connectionString);
 
     if (string.IsNullOrEmpty(apiUrlBase))
     {
