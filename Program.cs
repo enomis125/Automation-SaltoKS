@@ -194,7 +194,7 @@ private async Task UpdateTimeToAlive()
     }
 }
 
-private static async Task<(string tokenUrl, string clientId, string apiUrl, string supportEmail, string noReplyEmail, string noReplyPassword)> GetSysConectorSettingsFromDatabase(string connectionString)
+private static async Task<(string tokenUrl, string clientId, string apiUrl, string supportEmail, string noReplyEmail, string noReplyPassword, int sendingPort, string sendingServer)> GetSysConectorSettingsFromDatabase(string connectionString)
 {
     string tokenUrl = null;
     string clientId = null;
@@ -202,6 +202,8 @@ private static async Task<(string tokenUrl, string clientId, string apiUrl, stri
     string supportEmail = null;
     string noReplyEmail = null;
     string noReplyPassword = null;
+    int sendingPort = 0;
+    string sendingServer = null;
 
     try
     {
@@ -248,7 +250,7 @@ private static async Task<(string tokenUrl, string clientId, string apiUrl, stri
                                 noReplyPassword = value;
                                 break;
                             case "sendingPort":
-                                sendingPort = value;
+                                sendingPort = int.Parse(value);
                                 break;
                             case "sendingServer":
                                 sendingServer = value;
@@ -265,7 +267,7 @@ private static async Task<(string tokenUrl, string clientId, string apiUrl, stri
         // Aqui você pode decidir enviar um email ou logar o erro
     }
 
-    return (tokenUrl, clientId, apiUrl, supportEmail, noReplyEmail, noReplyPassword);
+    return (tokenUrl, clientId, apiUrl, supportEmail, noReplyEmail, noReplyPassword, sendingPort, sendingServer);
 }
 
     private async Task<(string, string)> RetrieveAccessTokenAndRefreshToken()
