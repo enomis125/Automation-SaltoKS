@@ -1,17 +1,5 @@
 USE protelmprado;
 
--- Verifica se a tabela 'xsetup' existe e a cria caso não exista
-IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'xsetup' AND TABLE_SCHEMA = 'dbo')
-BEGIN
-    CREATE TABLE dbo.xsetup (
-        ref INT PRIMARY KEY,         -- Chave primária, pode ser autoincrementada se necessário
-        Mpehotel INT NOT NULL,       -- Hotel referência
-        xsection NVARCHAR(255) NOT NULL,  -- Seção do sistema
-        xkey NVARCHAR(255) NOT NULL,      -- Chave de configuração
-        xvalue NVARCHAR(MAX) NOT NULL     -- Valor da configuração
-    );
-END;
-
 DECLARE @Ref int, @Ref2 int, @Ref3 int, @Ref4 int, @Ref5 int, @Ref6 int, @Ref7 int, @Ref8 int, @Ref9 int, @Ref10 int, @Ref11 int, @Ref12 int;
 DECLARE @Mpehotel int;
 DECLARE @tokenURL nvarchar(max), @clientId nvarchar(max), @apiUrl nvarchar(max);
@@ -38,10 +26,10 @@ SET @hotelPhone = '(11) 1234-5678';
 SET @hotelEmail = 'contato@hotelexample.com'; 
 
 -- Verifica se já existem entradas com 'SysConector' na tabela 'xsetup'
-IF NOT EXISTS (SELECT * FROM dbo.xsetup WHERE xsection = 'SysConector')
+IF NOT EXISTS (SELECT * FROM proteluser.xsetup WHERE xsection = 'SysConector')
 BEGIN
     -- Obtenção dos novos valores de referência
-    SET @Ref = (SELECT ISNULL(MAX(ref), 0) + 1 FROM dbo.xsetup);
+    SET @Ref = (SELECT ISNULL(MAX(ref), 0) + 1 FROM proteluser.xsetup);
     SET @Ref2 = @Ref + 1;
     SET @Ref3 = @Ref2 + 1;
     SET @Ref4 = @Ref3 + 1;
@@ -55,7 +43,7 @@ BEGIN
     SET @Ref12 = @Ref11 + 1;
 
     -- Inserção dos valores na tabela 'xsetup'
-    INSERT INTO dbo.xsetup
+    INSERT INTO proteluser.xsetup
     VALUES
         (@Ref, @Mpehotel, 'SysConector', 'tokenURL', @tokenURL),
         (@Ref2, @Mpehotel, 'SysConector', 'clientId', @clientId),
@@ -66,7 +54,7 @@ BEGIN
         (@Ref7, @Mpehotel, 'SysConector', 'sendingServer', @sendingServer),
         (@Ref8, @Mpehotel, 'SysConector', 'sendingPort', CAST(@sendingPort AS NVARCHAR(MAX))),
         (@Ref9, @Mpehotel, 'SysConector', 'supportEmail', @supportEmail),
-        (@Ref10, @Mpehotel, 'SysConector', 'hotelName', @hotelName),  -- Nome do hotel
-        (@Ref11, @Mpehotel, 'SysConector', 'hotelPhone', @hotelPhone), -- Telefone do hotel
-        (@Ref12, @Mpehotel, 'SysConector', 'hotelEmail', @hotelEmail);  -- Email do hotel
+        (@Ref10, @Mpehotel, 'SysConector', 'hotelName', @hotelName),
+        (@Ref11, @Mpehotel, 'SysConector', 'hotelPhone', @hotelPhone),
+        (@Ref12, @Mpehotel, 'SysConector', 'hotelEmail', @hotelEmail); 
 END;
