@@ -1,0 +1,15 @@
+2024-10-22 17:18:55: Service is starting...
+2024-10-22 17:18:56: Erro ao executar o script SQL: Invalid object name 'proteluser.xsetup'.
+Changed database context to 'protelmprado'.
+2024-10-22 17:18:56: Error during service start: Erro ao executar o script SQL: Invalid object name 'proteluser.xsetup'.
+Changed database context to 'protelmprado'.
+2024-10-22 17:20:32: Service is starting...
+2024-10-22 17:20:32: Script SQL executado com sucesso: D:\micronet\salto-automation\bin\Release\net8.0-windows\SQLScripts\xsetup.sql
+2024-10-22 17:20:32: Script SQL executado com sucesso: D:\micronet\salto-automation\bin\Release\net8.0-windows\SQLScripts\requestRecordsCode.sql
+2024-10-22 17:20:32: Script SQL executado com sucesso: D:\micronet\salto-automation\bin\Release\net8.0-windows\SQLScripts\requestConfig.sql
+2024-10-22 17:20:32: Service started successfully.
+2024-10-22 17:20:32: Starting work execution.
+2024-10-22 17:20:33: Refreshing access token.
+2024-10-22 17:20:33: timeToAlive atualizado com sucesso.
+2024-10-22 17:20:33: ID do Site Selecionado: 07cdf9ac-3681-4dcf-b8d0-ddb81197b0b3
+2024-10-22 17:20:33: Work execution completed successfully.

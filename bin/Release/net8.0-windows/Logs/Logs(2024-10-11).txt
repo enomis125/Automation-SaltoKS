@@ -1,4 +1,0 @@
-2024-10-11 18:31:54: Service is starting...
-2024-10-11 18:31:54: Erro ao executar o script SQL: An explicit value for the identity column in table 'dbo.xsetup' can only be specified when a column list is used and IDENTITY_INSERT is ON.
-2024-10-11 18:31:54: Error during service start: Erro ao executar o script SQL: An explicit value for the identity column in table 'dbo.xsetup' can only be specified when a column list is used and IDENTITY_INSERT is ON.
-2024-10-11 18:31:54: Erro: supportEmail não encontrado na base de dados.

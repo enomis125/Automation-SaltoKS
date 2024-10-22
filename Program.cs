@@ -45,20 +45,33 @@ protected override void OnStart(string[] args)
         Notas.Log("Service is starting..."); // Adicione log aqui
         connectionString = ReadConnectionStringFromFile("connectionString.txt");
 
-        // Executar o script SQL de inicialização
-        string scriptPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "xsetup.sql");
-        ExecuteSqlScript(scriptPath, connectionString);
-        
+        // Caminho da pasta onde estão os scripts SQL
+        string scriptFolder = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "SQLScripts");
+
+        // Executar o script xsetup.sql
+        string xsetupScriptPath = Path.Combine(scriptFolder, "xsetup.sql");
+        ExecuteSqlScript(xsetupScriptPath, connectionString);
+
+        // Executar o script requestRecordsCode.sql
+        string requestRecordsCodeScriptPath = Path.Combine(scriptFolder, "requestRecordsCode.sql");
+        ExecuteSqlScript(requestRecordsCodeScriptPath, connectionString);
+
+        // Executar o script requestConfig.sql
+        string requestConfigScriptPath = Path.Combine(scriptFolder, "requestConfig.sql");
+        ExecuteSqlScript(requestConfigScriptPath, connectionString);
+
+        // Iniciar o timer para executar a função DoWork periodicamente
         timer = new Timer(async state => await DoWork(), null, TimeSpan.Zero, TimeSpan.FromSeconds(30));
+
         Notas.Log("Service started successfully.");
     }
     catch (Exception ex)
     {
         Notas.Log("Error during service start: " + ex.Message);
-
         SendErrorEmail("Erro ao iniciar o serviço SysConector", ex.Message);
     }
 }
+
 
 private async Task DoWork()
 {
@@ -146,25 +159,37 @@ private void ExecuteSqlScript(string scriptPath, string connectionString)
         // Lê o script SQL do arquivo
         string script = File.ReadAllText(scriptPath);
 
-        // Conecta-se ao banco de dados e executa o script
+        // Dividir o script em lotes onde "GO" é o separador
+        string[] commandTexts = script.Split(new[] { "GO" }, StringSplitOptions.RemoveEmptyEntries);
+
+        // Conecta-se ao banco de dados e executa cada lote de comandos
         using (SqlConnection connection = new SqlConnection(connectionString))
         {
             connection.Open();
-            using (SqlCommand command = new SqlCommand(script, connection))
+            foreach (string commandText in commandTexts)
             {
-                command.ExecuteNonQuery();
+                if (!string.IsNullOrWhiteSpace(commandText))
+                {
+                    using (SqlCommand command = new SqlCommand(commandText, connection))
+                    {
+                        command.ExecuteNonQuery();
+                    }
+                }
             }
         }
 
-        Notas.Log("Script SQL executado com sucesso.");
+        Notas.Log("Script SQL executado com sucesso: " + scriptPath);
     }
     catch (Exception ex)
     {
         Notas.Log("Erro ao executar o script SQL: " + ex.Message);
-        throw new Exception("Erro ao executar o script SQL: " + ex.Message);
 
-        string message = "Message: " + ex.Message;
+        // Enviar email de erro antes de lançar a exceção
+        string message = $"Erro ao executar o script SQL ({scriptPath}): {ex.Message}";
         SendErrorEmail("Erro ao executar o script SQL", message);
+
+        // Lançar exceção após enviar o email
+        throw new Exception("Erro ao executar o script SQL: " + ex.Message);
     }
 }
 
@@ -397,26 +422,26 @@ private static async Task<(string tokenUrl, string clientId, string apiUrl, stri
 }
 
     private async Task UpdateTokensInDatabase(string newAccessToken, string newRefreshToken, DateTime expirationDate)
+{
+    using (var connection = new SqlConnection(connectionString))
     {
-        using (var connection = new SqlConnection(connectionString))
+        await connection.OpenAsync();
+        var query = @"UPDATE requestConfig SET 
+                        accessToken = @AccessToken, 
+                        refreshToken = @RefreshToken, 
+                        tokenExpiration = @TokenExpiration 
+                      WHERE requestConfigID = (SELECT TOP 1 requestConfigID FROM requestConfig ORDER BY requestConfigID DESC)";
+
+        using (var command = new SqlCommand(query, connection))
         {
-            await connection.OpenAsync();
-            var query = @"UPDATE requestConfig SET 
-                            accessToken = @AccessToken, 
-                            refreshToken = @RefreshToken, 
-                            tokenExpiration = @TokenExpiration 
-                          WHERE requestConfigID = 1";
+            command.Parameters.AddWithValue("@AccessToken", newAccessToken);
+            command.Parameters.AddWithValue("@RefreshToken", newRefreshToken);
+            command.Parameters.AddWithValue("@TokenExpiration", expirationDate);
 
-            using (var command = new SqlCommand(query, connection))
-            {
-                command.Parameters.AddWithValue("@AccessToken", newAccessToken);
-                command.Parameters.AddWithValue("@RefreshToken", newRefreshToken);
-                command.Parameters.AddWithValue("@TokenExpiration", expirationDate);
-
-                await command.ExecuteNonQueryAsync();
-            }
+            await command.ExecuteNonQueryAsync();
         }
     }
+}
 
 private static async Task SendEmailWithPin(string email, string pinCode, string guestName, string protelReservationID, DateTime protelValidFrom, DateTime protelValidUntil)
 {
